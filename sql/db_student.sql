@@ -83,7 +83,25 @@ CREATE TABLE db_demo.notice (
   COMMENT 'PK',
   notice  VARCHAR(255) NOT NULL
   COMMENT '公告',
-  adminId INT UNIQUE   NOT NULL
-  COMMENT 'fk 管理员id'
+  classId INT UNIQUE   NOT NULL
+  COMMENT 'fk 班级id'
 )
-  COMMENT '学院公';
+  COMMENT '学院公告表';
+
+ALTER TABLE db_demo.student
+  ADD CONSTRAINT
+  fk_student_classId
+FOREIGN KEY (classId)
+REFERENCES db_demo.class (id);
+
+ALTER TABLE db_demo.work
+  ADD CONSTRAINT
+  fk_work_studentId
+FOREIGN KEY (studentId)
+REFERENCES db_demo.student (id);
+
+ALTER TABLE db_demo.notice
+  ADD CONSTRAINT
+  fk_notice_adminId
+FOREIGN KEY (classId)
+REFERENCES db_demo.class (id);
