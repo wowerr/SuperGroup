@@ -7,3 +7,6 @@ CREATE TABLE admin(
 );
 SELECT *
 FROM admin;
+
+SELECT *
+FROM admin;
