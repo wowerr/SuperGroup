@@ -18,4 +18,10 @@ public class AdminServiceImpl extends GenericServiceImpl<Admin,Integer>  impleme
     void setGenericDao(GenericDao<Admin, Integer> genericDao) {
         super.genericDao = genericDao;
     }
+
+
+    @Override
+    public Admin login(Admin admin) {
+        return null;
+    }
 }
