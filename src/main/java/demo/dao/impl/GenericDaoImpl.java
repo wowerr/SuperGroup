@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/7.
+ *
  */
 public class GenericDaoImpl<T extends Serializable, ID extends Number> implements GenericDao<T, ID> {
 
@@ -43,21 +44,22 @@ public class GenericDaoImpl<T extends Serializable, ID extends Number> implement
 
     @Override
     public void modify(T model) {
-
+        sqlSession.update(namespace + ".modify", model);
     }
 
     @Override
     public List<T> list() {
-        return null;
+        return sqlSession.selectList(namespace+".list");
     }
 
     @Override
     public T search(ID id) {
-        return null;
+        return sqlSession.selectOne(namespace+".search",id);
     }
 
     @Override
     public List<T> list(String statement, Object parameter) {
-        return null;
+
+        return sqlSession.selectList(statement, parameter);
     }
 }

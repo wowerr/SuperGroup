@@ -16,6 +16,9 @@ INSERT INTO db_demo.admin VALUES (NULL, 'admin', '13do3DeGj6b8Nxf0l3+J/ER05/yQzb
 SELECT *
 FROM db_demo.admin;
 
+
+
+
 DROP TABLE IF EXISTS db_demo.class;
 CREATE TABLE db_demo.class (
   id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY

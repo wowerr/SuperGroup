@@ -1,18 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2016/6/7
-  Time: 15:05
+  Date: 2016/6/13
+  Time: 10:45
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ include file="common/inc.jsp"%>
 <html>
-  <head>
-    <title>$Title$</title>
-  </head>
-  <body>
-  <a href="${ctx}/admin/admin.jsp">教师登陆</a>
-  $END$
-  </body>
+<head>
+    <title>班级首页</title>
+</head>
+<body>
+<h1>班级管理页面</h1>
+</body>
 </html>

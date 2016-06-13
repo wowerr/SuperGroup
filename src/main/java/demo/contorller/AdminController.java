@@ -1,15 +1,35 @@
 package demo.contorller;
 
+import demo.model.Admin;
+import demo.service.AdminService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by Administrator on 2016/6/7.
+ *
  */
 @Controller
 @RequestMapping("/admin")
 public class AdminController extends BaseController {
 
+    @Autowired
+    AdminService adminService;
 
+    @RequestMapping("/login")
+    private String login(Admin admin) {
+        admin = adminService.login(admin);
+        if (admin != null) {
+            System.out.println(admin);
+            session.setAttribute("admin", admin);
+            return "redirect:/class/classes.jsp";
+        } else {
+            request.setAttribute("message","用户名和密码错误");
+            return "/admin/admin";
+
+        }
+
+    }
 
 }
