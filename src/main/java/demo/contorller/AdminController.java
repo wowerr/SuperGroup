@@ -23,7 +23,7 @@ public class AdminController extends BaseController {
         if (admin != null) {
             System.out.println(admin);
             session.setAttribute("admin", admin);
-            return "redirect:/class/classes.jsp";
+            return "redirect:/classes/queryAllClasses";
         } else {
             request.setAttribute("message","用户名和密码错误");
             return "/admin/admin";

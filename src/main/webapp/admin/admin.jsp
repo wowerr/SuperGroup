@@ -12,7 +12,7 @@
     <title>admin index</title>
 </head>
 <body>
-<h1>教师登陆</h1>
+<h1>管理员登陆</h1>
 <form action="/admin/login" method="post">
     <input type="text" name="username" placeholder="用户名"><br>
     <input type="password" name="password" placeholder="密码"><br>
