@@ -5,10 +5,11 @@ DROP TABLE IF EXISTS db_demo.admin;
 CREATE TABLE db_demo.admin (
   id       INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
   COMMENT 'PK',
-  username VARCHAR(30) NOT NULL
+  username VARCHAR(30)  NOT NULL
   COMMENT '用户名',
   password VARCHAR(255) NOT NULL
-  COMMENT '密码'
+  COMMENT '密码',
+  role     CHAR(2) COMMENT '身份 a-admin s-student'
 )
   COMMENT '管理员表';
 
@@ -40,27 +41,27 @@ DROP TABLE IF EXISTS db_demo.student;
 CREATE TABLE db_demo.student (
   id           INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
   COMMENT 'PK',
-  username     VARCHAR(30) NOT NULL
+  username     VARCHAR(30)  NOT NULL
   COMMENT '学员姓名',
-  password     VARCHAR(30) NOT NULL
+  password     VARCHAR(255) NOT NULL
   COMMENT '密码',
-  number       VARCHAR(8)  NOT NULL
+  number       VARCHAR(8)   NOT NULL
   COMMENT '学员编号',
-  gender       CHAR(2)     NOT NULL
+  gender       CHAR(2)      NOT NULL
   COMMENT '性别',
-  idNumber     VARCHAR(18) NOT NULL
+  idNumber     VARCHAR(18)  NOT NULL
   COMMENT '身份证号',
-  tel          VARCHAR(11) NOT NULL
+  tel          VARCHAR(11)  NOT NULL
   COMMENT '联系方式',
-  email        VARCHAR(30) NOT NULL UNIQUE
+  email        VARCHAR(30)  NOT NULL UNIQUE
   COMMENT '常用邮箱',
-  startDate    DATE        NOT NULL
+  startDate    DATE         NOT NULL
   COMMENT '入训日期',
-  finishDate   DATE        NOT NULL
+  finishDate   DATE         NOT NULL
   COMMENT '退训日期',
-  studentState VARCHAR(5)  NOT NULL
+  studentState VARCHAR(5)   NOT NULL
   COMMENT '学员状态',
-  classId      INT         NOT NULL UNIQUE
+  classId      INT          NOT NULL UNIQUE
   COMMENT 'FK 班级id'
 )
   COMMENT '学员表';
@@ -90,19 +91,19 @@ CREATE TABLE db_demo.notice (
   COMMENT '学院公告表';
 
 ALTER TABLE db_demo.student
-  ADD CONSTRAINT
+ADD CONSTRAINT
   fk_student_classId
 FOREIGN KEY (classId)
 REFERENCES db_demo.class (id);
 
 ALTER TABLE db_demo.work
-  ADD CONSTRAINT
+ADD CONSTRAINT
   fk_work_studentId
 FOREIGN KEY (studentId)
 REFERENCES db_demo.student (id);
 
 ALTER TABLE db_demo.notice
-  ADD CONSTRAINT
+ADD CONSTRAINT
   fk_notice_adminId
 FOREIGN KEY (classId)
 REFERENCES db_demo.class (id);
