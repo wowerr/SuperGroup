@@ -59,6 +59,7 @@ public class GenericDaoImpl<T extends Serializable, ID extends Number> implement
 
     @Override
     public List<T> list(String statement, Object parameter) {
+
         return sqlSession.selectList(statement, parameter);
     }
 }
