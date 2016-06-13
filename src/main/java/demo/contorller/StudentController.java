@@ -17,13 +17,13 @@ public class StudentController extends BaseController{
 
 @RequestMapping("login")
     private String login(Student student ){
-    student = studentService.login(request,student);
+    student = studentService.login(student);
     if (student != null) {
         session.setAttribute("student", student);
-        return "redirect:/student/index.jsp";
+        return "redirect:/student/student.jsp";
     } else {
-        request.setAttribute("message", "invalid email or password!");
-        return "/index";
+        request.setAttribute("message", "invalid username or password!");
+        return "/student/index";
     }
 }
 }

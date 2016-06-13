@@ -4,6 +4,7 @@ import demo.dao.GenericDao;
 import demo.dao.StudentDao;
 import demo.model.Student;
 import demo.service.StudentService;
+import demo.util.Encryptor;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -25,16 +26,14 @@ public class StudentServiceImpl extends GenericServiceImpl<Student,Integer>  imp
     }
 
     @Override
-    public Student login(HttpServletRequest request, Student student) {
+    public Student login(Student student) {
         String plainPassword = student.getPassword();
         StudentDao studentDao = (StudentDao) super.genericDao;
-        List<Student> students = studentDao.list("student.login", student.getEmail());
+        List<Student> students = studentDao.list("student.login", student.getUsername());
         if (students.size() == 1) {
             student = students.get(0);
             String encryptedPassword = student.getPassword();
-            StrongPasswordEncryptor encryptor = new StrongPasswordEncryptor();
-            if (encryptor.checkPassword(plainPassword, encryptedPassword)) {
-                studentDao.modify(student);
+            if (Encryptor.getEncryptor().checkPassword(plainPassword, encryptedPassword)) {
                 student.setPassword(null);
                 return student;
             }

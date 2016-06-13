@@ -109,3 +109,7 @@ ADD CONSTRAINT
   fk_notice_adminId
 FOREIGN KEY (classId)
 REFERENCES db_demo.class (id);
+
+
+SELECT *
+FROM db_demo.student;
