@@ -38,6 +38,9 @@ CREATE TABLE db_demo.class (
 )
   COMMENT '班级表';
 
+SELECT *
+FROM db_demo.class;
+
 
 DROP TABLE IF EXISTS db_demo.student;
 CREATE TABLE db_demo.student (

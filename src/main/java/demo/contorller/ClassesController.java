@@ -22,7 +22,8 @@ public class ClassesController extends BaseController {
     @RequestMapping("/create")
     private String create(Classes aClass) {
         classesService.create(aClass);
-        return "/classes/queryAllClasses";
+        session.setAttribute("classes",classesService.list());
+        return "redirect:/class/queryAllClasses.jsp";
     }
 
     @RequestMapping("/queryAllClasses")
