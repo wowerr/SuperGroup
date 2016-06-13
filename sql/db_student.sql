@@ -7,13 +7,14 @@ CREATE TABLE db_demo.admin (
   COMMENT 'PK',
   username VARCHAR(30) NOT NULL
   COMMENT '用户名',
-  password VARCHAR(30) NOT NULL
+  password VARCHAR(255) NOT NULL
   COMMENT '密码'
 )
   COMMENT '管理员表';
 
-INSERT INTO db_demo.admin VALUES (NULL, 'admin', '123');
-
+INSERT INTO db_demo.admin VALUES (NULL, 'admin', '13do3DeGj6b8Nxf0l3+J/ER05/yQzbHHPkaIhb4m01f+p0nj14OrJEIts4K2qZ3m');
+SELECT *
+FROM db_demo.admin;
 
 DROP TABLE IF EXISTS db_demo.class;
 CREATE TABLE db_demo.class (
