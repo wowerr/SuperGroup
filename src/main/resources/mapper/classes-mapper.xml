@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="classes">
+    <insert id="create" parameterType="classes">
+        INSERT INTO db_demo.class VALUES (
+            NULL,
+            #{title},
+            #{startDate},
+            #{finishDate},
+            #{cost},
+            #{teacher},
+            #{classState}
+        )
+    </insert>
+    <select id="list" resultType="classes">
+        SELECT *
+        FROM db_demo.class
+    </select>
+
+</mapper>
