@@ -8,8 +8,7 @@ CREATE TABLE db_demo.admin (
   username VARCHAR(30)  NOT NULL
   COMMENT '用户名',
   password VARCHAR(255) NOT NULL
-  COMMENT '密码',
-  role     CHAR(2) COMMENT '身份 a-admin s-student'
+  COMMENT '密码'
 )
   COMMENT '管理员表';
 
