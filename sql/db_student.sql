@@ -8,8 +8,7 @@ CREATE TABLE db_demo.admin (
   username VARCHAR(30)  NOT NULL
   COMMENT '用户名',
   password VARCHAR(255) NOT NULL
-  COMMENT '密码',
-  role     CHAR(2) COMMENT '身份 a-admin s-student'
+  COMMENT '密码'
 )
   COMMENT '管理员表';
 
@@ -61,7 +60,7 @@ CREATE TABLE db_demo.student (
   COMMENT '退训日期',
   studentState VARCHAR(5)   NOT NULL
   COMMENT '学员状态',
-  classId      INT          NOT NULL UNIQUE
+  classId      INT          UNSIGNED
   COMMENT 'FK 班级id'
 )
   COMMENT '学员表';
@@ -75,7 +74,7 @@ CREATE TABLE db_demo.work (
   COMMENT '工作单位',
   position  VARCHAR(8)  NOT NULL
   COMMENT '职位',
-  studentId INT         NOT NULL
+  studentId INT       UNSIGNED  NOT NULL
   COMMENT 'fk 学员id'
 );
 
@@ -85,7 +84,7 @@ CREATE TABLE db_demo.notice (
   COMMENT 'PK',
   notice  VARCHAR(255) NOT NULL
   COMMENT '公告',
-  classId INT UNIQUE   NOT NULL
+  classId INT UNSIGNED   NOT NULL
   COMMENT 'fk 班级id'
 )
   COMMENT '学院公告表';
