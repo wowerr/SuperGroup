@@ -7,6 +7,6 @@
     <select id="login" resultType="admin" parameterType="admin">
         SELECT *
         FROM db_demo.admin
-        WHERE username = #{username} AND password = #{password}
+        WHERE username = #{username}
     </select>
 </mapper>

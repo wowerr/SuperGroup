@@ -1,3 +1,4 @@
+/*
 package demo.util;
 
 import freemarker.template.Template;
@@ -134,3 +135,4 @@ class ComponentsGenerator {
         return stringBuilder.toString();
     }
 }
+*/
