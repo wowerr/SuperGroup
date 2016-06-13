@@ -12,7 +12,7 @@
     <title>$Title$</title>
   </head>
   <body>
-  <a href="${ctx}/admin/admin.jsp">教师登陆</a>
-  $END$
+  <a href="${ctx}/admin/admin.jsp">管理员登录</a>
+
   </body>
 </html>

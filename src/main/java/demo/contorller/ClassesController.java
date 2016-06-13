@@ -16,6 +16,9 @@ public class ClassesController extends BaseController {
     @Autowired
     ClassesService classesService;
 
+    private void list() {
+        session.setAttribute("classes", classesService.list());
+    }
     @RequestMapping("/create")
     private String create(Classes aClass) {
         classesService.create(aClass);
@@ -26,5 +29,10 @@ public class ClassesController extends BaseController {
     private String queryAllClasses() {
         session.setAttribute("classes", classesService.list());
         return "redirect:/class/queryAllClasses.jsp";
+    }
+    @RequestMapping("/queryClasses")
+    private String queryClasses() {
+        list();
+        return "redirect:/admin/addStudent.jsp";
     }
 }

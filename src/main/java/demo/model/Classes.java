@@ -1,6 +1,7 @@
 package demo.model;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Administrator on 2016/6/13.
@@ -15,6 +16,8 @@ public class Classes extends BaseModel {
     private double cost;
     private String teacher;
     private String classState;
+//many to one
+    private List<Student> students;
 
     public Classes() {
     }

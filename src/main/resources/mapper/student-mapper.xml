@@ -9,11 +9,31 @@
         FROM db_demo.student
         WHERE username = #{username}
     </select>
+    <insert id="create" parameterType="student" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_demo.student VALUES (
+        NULL,
+        #{username},
+        #{password},
+        #{number},
+        #{gender},
+        #{idNumber},
+        #{tel},
+        #{email},
+        #{startDate},
+        #{finishDate},
+        #{studentState},
+        #{classId}
+        )
+    </insert>
+
     <resultMap id="students_map" type="class">
         <result property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="startDate" column="startDate"/>
         <result property="finishDate" column="finishDate"/>
+        <result property="cost" column="cost"/>
+        <result property="teacher" column="teacher"/>
+        <result property="classState" column="classState"/>
         <collection property="students" ofType="student">
             <id property="id" column="student_id"/>
             <result property="username" column="username"/>
@@ -21,22 +41,46 @@
             <result property="tel" column="tel"/>
         </collection>
     </resultMap>
-
-    <select id="students" parameterType="int" resultMap="students_map">
+    <select id="queryClasses" parameterType="int" resultMap="students_map">
         SELECT
-        c.id,
-        c.title,
-        c.startDate,
-        c.finishDate,
-        s.id,
-        s.email,
-        s.username,
-        s.gender,
-        s.dob,
-        s.tel
+            c.id,
+            c.title,
+            c.startDate,
+            c.finishDate,
+            c.cost,
+            c.teacher,
+            c.classState,
+            s.id,
+            s.username,
+            s.number,
+            s.gender,
+            s.idNumber,
+            s.tel,
+            s.email,
+            s.startDate,
+            s.finishDate,
+            s.studentState,
+            s.classId
         FROM db_demo.class c INNER JOIN db_demo.student s
-        ON c.id = s.classId
-        WHERE c.id = #{id} OR number=#{number}
+                ON c.id = s.classId
+        WHERE c.id = #{id} ADD s.username LIKE concat('%', concat(#{username}, '%'))
         ORDER BY s.id
     </select>
+
+    <update id="modify" parameterType="student">
+        UPDATE db_demo.student s
+        SET
+           s.username= #{username},
+            s.password= #{password},
+            s.number=#{number},
+            s.gender= #{gender},
+            s.idNumber= #{idNumber},
+            s.tel= #{tel},
+            s.email= #{email},
+            s.startDate=#{startDate},
+            s.finishDate= #{finishDate},
+            s.studentState= #{studentState},
+            s.classId= #{classId}
+        WHERE id = #{id}
+    </update>
 </mapper>
