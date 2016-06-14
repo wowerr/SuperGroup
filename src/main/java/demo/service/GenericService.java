@@ -18,5 +18,7 @@ public interface GenericService<T extends Serializable , ID extends Number> {
 
     T search(ID id);
 
+    T search(String statement, Object parameter);
+
     List<T> list(String statement, Object parameter);
 }

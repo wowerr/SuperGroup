@@ -12,6 +12,7 @@
 <table border="1">
     <tr>
         <th>序号</th>
+        <th>ID</th>
         <th>班级名称</th>
         <th>开班时间</th>
         <th>结业时间</th>
@@ -23,14 +24,15 @@
     <c:forEach var="aclass" items="${sessionScope.classes}" varStatus="vs">
         <tr>
             <td>${vs.count}</td>
+            <td>${aclass.id}</td>
             <td>${aclass.title}</td>
             <td>${aclass.startDate}</td>
             <td>${aclass.finishDate}</td>
             <td>${aclass.cost}</td>
             <td>${aclass.teacher}</td>
             <td>${aclass.classState}</td>
-            <td><a href="">修改班级信息</a></td>
-            <td><a href="">班级学员管理</a></td>
+            <td><a href="${ctx}/classes/searchById/${aclass.id}">修改班级信息</a></td>
+            <td><a href="${ctx}/classes/searchClassStudent/${aclass.id}">班级学员管理</a></td>
             <td><a href="">班级公告发布</a></td>
         </tr>
     </c:forEach>

@@ -1,4 +1,3 @@
-DROP DATABASE IF EXISTS db_demo;
 CREATE DATABASE db_demo;
 USE db_demo;
 
@@ -119,4 +118,36 @@ SELECT *
 FROM db_demo.student;
 SELECT *
 FROM db_demo.class;
+INSERT INTO db_demo.class VALUES (NULL ,'java02','2016-06-01','2016-06-01',15000,'zhangsan','ing');
 INSERT INTO db_demo.class VALUES (NULL ,'java01','2016-06-01','2016-06-01',15000,'zhangsan','ing');
+INSERT INTO db_demo.class VALUES (NULL ,'java03','2016-06-01','2016-06-01',15000,'哈哈','ing');
+
+SELECT *
+FROM student;
+
+SELECT
+  c.id,
+  c.title,
+  s.id         AS id_student,
+  s.username,
+  s.number,
+  s.startDate  AS startDate_student,
+  s.finishDate AS finishDate_student,
+  s.studentState
+FROM db_demo.class c INNER JOIN db_demo.student s
+    ON c.id = s.classId
+WHERE c.id = 1;
+
+
+select
+  c.id,
+  c.title,
+  s.id         AS id_student,
+  s.username,
+  s.number,
+  s.startDate  AS startDate_student,
+  s.finishDate AS finishDate_student,
+  s.studentState
+from class c,student s where c.id = s.classId and  c.id = 1
+
+select * from
