@@ -26,7 +26,7 @@
         )
     </insert>
 
-    <resultMap id="students_map" type="class">
+    <resultMap id="students_map" type="classes">
         <result property="id" column="id"/>
         <result property="title" column="title"/>
         <result property="startDate" column="startDate"/>
