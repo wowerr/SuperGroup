@@ -16,6 +16,8 @@ public interface GenericDao<T extends Serializable, ID extends Number> {
     List<T> list();
 
     T search(ID id);
+    
+    T search(String statement, Object parameter);
 
     List<T> list(String statement, Object parameter);
 }

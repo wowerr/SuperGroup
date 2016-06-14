@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="classes">
-    <insert id="create" parameterType="classes">
+    <insert id="create" parameterType="classes" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO db_demo.class VALUES (
             NULL,
             #{title},
@@ -19,5 +19,47 @@
         SELECT *
         FROM db_demo.class
     </select>
+
+    <update id="modify">
+        UPDATE db_demo.class
+        SET
+            title = #{title}, startDate = #{startDate}, finishDate = #{finishDate}, cost = #{cost}, teacher = #{teacher}, classState=#{classState}
+        WHERE id = #{id}
+    </update>
+
+    <select id="search" resultType="classes">
+        SELECT *
+        FROM db_demo.class
+        WHERE id = #{id}
+    </select>
+
+    <resultMap id="student_map" type="classes">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <collection property="students" ofType="student">
+            <id property="id" column="id_student"/>
+            <result property="username" column="username"/>
+            <result property="number" column="number"/>
+            <result property="startDate" column="startDate_student"/>
+            <result property="finishDate" column="finishDate_student"/>
+            <result property="studentState" column="studentState"/>
+        </collection>
+    </resultMap>
+
+    <select id="searchStudent" parameterType="int" resultMap="student_map">
+        SELECT
+            c.id,
+            c.title,
+            s.id         AS id_student,
+            s.username,
+            s.number,
+            s.startDate  AS startDate_student,
+            s.finishDate AS finishDate_student,
+            s.studentState
+        FROM db_demo.class c LEFT JOIN db_demo.student s
+                ON c.id = s.classId
+        WHERE c.id = #{id}
+    </select>
+
 
 </mapper>

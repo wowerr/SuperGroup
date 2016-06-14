@@ -21,7 +21,7 @@ public class AdminController extends BaseController {
     private String login(Admin admin) {
         admin = adminService.login(admin);
         if (admin != null) {
-            System.out.println(admin);
+
             session.setAttribute("admin", admin);
             return "redirect:/classes/queryAllClasses";
         } else {

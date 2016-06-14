@@ -27,7 +27,7 @@ public abstract class GenericServiceImpl<T extends Serializable, ID extends Numb
 
     @Override
     public void modify(T model) {
-genericDao.modify(model);
+        genericDao.modify(model);
     }
 
     @Override
@@ -39,6 +39,12 @@ genericDao.modify(model);
     public T search(ID id) {
         return genericDao.search(id);
     }
+
+    @Override
+    public T search(String statement, Object parameter) {
+        return genericDao.search(statement, parameter);
+    }
+
 
     @Override
     public List<T> list(String statement, Object parameter) {

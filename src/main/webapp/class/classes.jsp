@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="/common/inc.jsp"%>
 
 <html>
 <head>
@@ -15,7 +16,7 @@
 <h1>班级管理页面</h1>
 <hr>
 <h2>新增班级</h2>
-<form action="/classes/create" method="post">
+<form action="${ctx}/classes/create" method="post">
     <input type="text" name="title" placeholder="班级名称"><br>
     <input type="date" name="startDate" placeholder="开班日期"><br>
     <input type="date" name="finishDate" placeholder="结业日期"><br>
