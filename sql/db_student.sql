@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS db_demo;
 CREATE DATABASE db_demo;
 USE db_demo;
 

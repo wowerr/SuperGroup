@@ -11,46 +11,42 @@
     </select>
     <insert id="create" parameterType="student" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO db_demo.student VALUES (
-        NULL,
-        #{username},
-        #{password},
-        #{number},
-        #{gender},
-        #{idNumber},
-        #{tel},
-        #{email},
-        #{startDate},
-        #{finishDate},
-        #{studentState},
-        #{classId}
+            NULL,
+            #{username},
+            #{password},
+            #{number},
+            #{gender},
+            #{idNumber},
+            #{tel},
+            #{email},
+            #{startDate},
+            #{finishDate},
+            #{studentState},
+            #{classId}
         )
     </insert>
 
-    <resultMap id="students_map" type="classes">
-        <result property="id" column="id"/>
-        <result property="title" column="title"/>
+    <resultMap id="students_map" type="student">
+        <id property="id" column="sid"/>
+        <result property="username" column="username"/>
+        <result property="number" column="number"/>
+        <result property="gender" column="gender"/>
+        <result property="idNumber" column="idNumber"/>
+        <result property="tel" column="tel"/>
+        <result property="email" column="email"/>
         <result property="startDate" column="startDate"/>
         <result property="finishDate" column="finishDate"/>
-        <result property="cost" column="cost"/>
-        <result property="teacher" column="teacher"/>
-        <result property="classState" column="classState"/>
-        <collection property="students" ofType="student">
-            <id property="id" column="student_id"/>
-            <result property="username" column="username"/>
-            <result property="gender" column="gender"/>
-            <result property="tel" column="tel"/>
-        </collection>
+        <result property="studentState" column="studentState"/>
+        <association property="classes" javaType="classes">
+            <result property="id" column="id"/>
+            <result property="title" column="title"/>
+        </association>
     </resultMap>
-    <select id="queryClasses" parameterType="int" resultMap="students_map">
+    <select id="queryClasses" parameterType="student" resultMap="students_map">
         SELECT
             c.id,
             c.title,
-            c.startDate,
-            c.finishDate,
-            c.cost,
-            c.teacher,
-            c.classState,
-            s.id,
+            s.id AS sid,
             s.username,
             s.number,
             s.gender,
@@ -59,28 +55,29 @@
             s.email,
             s.startDate,
             s.finishDate,
-            s.studentState,
-            s.classId
-        FROM db_demo.class c INNER JOIN db_demo.student s
+            s.studentState
+        FROM db_demo.class c LEFT JOIN db_demo.student s
                 ON c.id = s.classId
-        WHERE c.id = #{id} ADD s.username LIKE concat('%', concat(#{username}, '%'))
-        ORDER BY s.id
+        WHERE s.username LIKE concat('%', concat(#{username}), '%')
     </select>
 
     <update id="modify" parameterType="student">
         UPDATE db_demo.student s
         SET
-           s.username= #{username},
-            s.password= #{password},
-            s.number=#{number},
-            s.gender= #{gender},
-            s.idNumber= #{idNumber},
-            s.tel= #{tel},
-            s.email= #{email},
-            s.startDate=#{startDate},
-            s.finishDate= #{finishDate},
-            s.studentState= #{studentState},
-            s.classId= #{classId}
+            s.username = #{username},
+            s.password = #{password},
+            s.number = #{number},
+            s.gender = #{gender},
+            s.idNumber = #{idNumber},
+            s.tel = #{tel},
+            s.email = #{email},
+            s.startDate = #{startDate},
+            s.finishDate = #{finishDate},
+            s.studentState = #{studentState},
+            s.classId = #{classId}
         WHERE id = #{id}
     </update>
+<select id="search" resultType="student" parameterType="student">
+    SELECT * FROM db_demo.student
+</select>
 </mapper>

@@ -38,7 +38,7 @@ public class StudentController extends BaseController {
     @RequestMapping("/editStudent")
     private String modify(Student student) {
         studentService.modify(student);
-        return "redirect:/admin/queryAll";
+        return "redirect:/admin/studentRoll.jsp";
     }
 
     @RequestMapping("/removeStudent/{id}")
@@ -46,9 +46,17 @@ public class StudentController extends BaseController {
         studentService.remove(id);
         return "redirect:/admin/queryAll";
     }
-    @RequestMapping("searchStudent/{id}")
-    private String search(@PathVariable int id) {
-        session.setAttribute("students", studentService.list("student.search", id));
+    @RequestMapping("/searchStudent")
+    private String search(Student student) {
+        //session.setAttribute("students", studentService.list("student.search", student));
+        Student student1= (Student) studentService.list("student.queryClasses", student);
+       System.out.println( student1.getIdNumber());
+        session.setAttribute("students",student1);
+        return "redirect:/admin/studentRoll.jsp";
+    }
+    @RequestMapping("/queryAllStudent")
+    private String query(Student student) {
+        session.setAttribute("students", studentService.list("student.search", student));
         return "redirect:/admin/studentRoll.jsp";
     }
 }

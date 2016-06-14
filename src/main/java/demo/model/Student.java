@@ -22,6 +22,8 @@ public class Student implements Serializable {
     private String finishDate;
     private String studentState;
     private String classId;
+    //many to one
+    private Classes classes;
 
     public Student() {
     }

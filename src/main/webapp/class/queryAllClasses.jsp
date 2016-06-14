@@ -7,6 +7,7 @@
 </head>
 <body>
 
+<a href="${ctx}/student/queryAllStudent">学籍管理</a><br>
 <a href="${ctx}/class/classes.jsp">添加班级</a><br>
 <table border="1">
     <tr>

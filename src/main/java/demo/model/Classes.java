@@ -16,7 +16,7 @@ public class Classes extends BaseModel {
     private double cost;
     private String teacher;
     private String classState;
-//many to one
+//one to many
     private List<Student> students;
 
     public Classes() {

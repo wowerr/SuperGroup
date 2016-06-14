@@ -11,11 +11,14 @@
 <head>
     <title>admin index</title>
 </head>
+<script>
+    console.log(${sessionScope.students})
+</script>
 <body>
 <h1>学籍管理</h1>
 <a href="">注销</a>
 <a href="${ctx}/classes/queryClasses">新增学生</a>
-<form action="/admin/queryStudent" method="post">
+<form action="/student/searchStudent" method="post">
     <select>
         <c:forEach var="aClass" items="${sessionScope.classes}">
             <option value="${aClass.id}">${aClass.title}</option>
@@ -24,6 +27,7 @@
     <input type="text" name="username" placeholder="用户名">
     <input type="submit" value="查询">
 </form>
+<hr>
 <table border="1">
     <tr>
         <th>序号</th>
@@ -44,18 +48,24 @@
         <tr>
             <td>${vs.count}</td>
             <td><a href="${ctx}/class/students/${aClass.id}">${aClass.title}</a></td>
-            <td>${aClass.student.username}</td>
-            <td>${aClass.student.password}</td>
-            <td>${aClass.student.number}</td>
-            <td>${aClass.student.gender}</td>
-            <td>${aClass.student.idNumber}</td>
-            <td>${aClass.student.tel}</td>
-            <td>${aClass.student.email}</td>
-            <td>${aClass.student.startDate}</td>
-            <td>${aClass.student.finishDate}</td>
-            <td>${aClass.student.studentState}</td>
-            <td><a href="${ctx}/student/search/${aClass.student.id}">编辑</a></td>
-            <td><a class="remove" href="${ctx}/student/remove/${aClass.student.id}">删除</a></td>
+
+        </tr>
+    </c:forEach>
+    <c:forEach var="student" items="${sessionScope.students}" varStatus="vs">
+        <tr>
+            <td>${vs.count}</td>
+            <td>${student.username}</td>
+            <td>${student.password}</td>
+            <td>${student.number}</td>
+            <td>${student.gender}</td>
+            <td>${student.idNumber}</td>
+            <td>${student.tel}</td>
+            <td>${student.email}</td>
+            <td>${student.startDate}</td>
+            <td>${student.finishDate}</td>
+            <td>${student.studentState}</td>
+            <td><a href="${ctx}/student/editStudent.jsp/${student.id}">编辑</a></td>
+            <td><a class="remove" href="${ctx}/student/remove/${student.id}">删除</a></td>
         </tr>
     </c:forEach>
 </table>
