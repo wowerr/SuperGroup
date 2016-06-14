@@ -121,7 +121,6 @@ FROM db_demo.class;
 INSERT INTO db_demo.class VALUES (NULL ,'java02','2016-06-01','2016-06-01',15000,'zhangsan','ing');
 INSERT INTO db_demo.class VALUES (NULL ,'java01','2016-06-01','2016-06-01',15000,'zhangsan','ing');
 INSERT INTO db_demo.class VALUES (NULL ,'java03','2016-06-01','2016-06-01',15000,'哈哈','ing');
-
 SELECT *
 FROM student;
 
@@ -148,6 +147,7 @@ select
   s.startDate  AS startDate_student,
   s.finishDate AS finishDate_student,
   s.studentState
-from class c,student s where c.id = s.classId and  c.id = 1
+from class c,student s where c.id = s.classId and  c.id = 1;
 
-select * from
+
+

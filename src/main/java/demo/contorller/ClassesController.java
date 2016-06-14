@@ -31,11 +31,6 @@ public class ClassesController extends BaseController {
         list();
         return "redirect:/class/queryAllClasses.jsp";
     }
-    @RequestMapping("/queryClasses")
-    private String queryClasses() {
-        list();
-        return "redirect:/admin/addStudent.jsp";
-    }
     @RequestMapping("searchById/{id}")
     private String search(@PathVariable("id") Integer id) {
         session.setAttribute("aClasses", classesService.search(id));

@@ -9,7 +9,7 @@
 <%@ include file="../common/inc.jsp" %>
 <html>
 <head>
-    <title>修改学生信息</title>
+    <title>新增学生</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${ctx}/static/bootstrap/css/bootstrap.min.css">
     <script src="${ctx}/static/js/jquery-1.12.3.min.js"></script>
@@ -24,9 +24,9 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h1 class="text-center">修改学生信息</h1>
+        <h1 class="text-center">新增学生</h1>
     </div>
-    <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
+    <form class="well form-horizontal" action="${ctx}/student/createStudent" method="post">
         <div class="form-group">
             <label class="control-label col-sm-2" for="classId">班级</label>
             <div class="col-sm-4">
@@ -105,6 +105,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
                 <button type="submit" class="btn btn-group-lg btn-success">新增</button>
+                <button type="reset" class="btn btn-group-lg btn-success">重置</button>
             </div>
         </div>
     </form>

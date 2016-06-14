@@ -9,7 +9,7 @@
 <%@ include file="../common/inc.jsp" %>
 <html>
 <head>
-    <title>新增学生</title>
+    <title>修改学生信息</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${ctx}/static/bootstrap/css/bootstrap.min.css">
     <script src="${ctx}/static/js/jquery-1.12.3.min.js"></script>
@@ -24,9 +24,11 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h1 class="text-center">新增学生</h1>
+        <h1 class="text-center">修改学生信息</h1>
     </div>
-    <form class="well form-horizontal" action="${ctx}/student/createStudent" method="post">
+    ${sessionScope.studentSelf}
+    <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
+        <input type="hidden" name="id" value="${sessionScope.studentSelf.id}">
         <div class="form-group">
             <label class="control-label col-sm-2" for="classId">班级</label>
             <div class="col-sm-4">
@@ -40,19 +42,19 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">用户名</label>
             <div class="col-sm-4">
-                <input class="form-control" id="username" type="text" name="username">
+                <input class="form-control" id="username" type="text" name="username"  value="${sessionScope.studentSelf.username}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="password">密码</label>
             <div class="col-sm-4">
-                <input class="form-control" id="password" type="password" name="password" value="123">
+                <input class="form-control" id="password" type="password" name="password" value="${sessionScope.studentSelf.password}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="number">学员编号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="number" type="text" name="number" value="2016001">
+                <input class="form-control" id="number" type="text" name="number" value="${sessionScope.studentSelf.number}">
             </div>
         </div>
         <div class="form-group">
@@ -65,31 +67,31 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="idNumber">身份证号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="idNumber" type="text" name="idNumber" value="140000199612128888">
+                <input class="form-control" id="idNumber" type="text" name="idNumber" value="${sessionScope.studentSelf.idNumber}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="tel">联系方式</label>
             <div class="col-sm-4">
-                <input class="form-control" id="tel" type="text" name="tel" value="12345678912">
+                <input class="form-control" id="tel" type="text" name="tel" value="${sessionScope.studentSelf.tel}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="email">常用邮箱</label>
             <div class="col-sm-4">
-                <input class="form-control" id="email" type="text" name="email" value="test@qq.com">
+                <input class="form-control" id="email" type="text" name="email" value="${sessionScope.studentSelf.email}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="startDate">入训日期</label>
             <div class="col-sm-4">
-                <input class="form-control" id="startDate" type="date" name="startDate" value="2016-06-06">
+                <input class="form-control" id="startDate" type="date" name="startDate" value="${sessionScope.studentSelf.startDate}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="finishDate">退训日期</label>
             <div class="col-sm-4">
-                <input class="form-control" id="finishDate" type="date" name="finishDate" value="2017-1-1">
+                <input class="form-control" id="finishDate" type="date" name="finishDate" value="${sessionScope.studentSelf.finishDate}">
             </div>
         </div>
         <div class="form-group">
@@ -104,7 +106,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-4">
-                <button type="submit" class="btn btn-group-lg btn-success">新增</button>
+                <button type="submit" class="btn btn-group-lg btn-success">修改</button>
             </div>
         </div>
     </form>

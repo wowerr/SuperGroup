@@ -13,6 +13,7 @@
   </head>
   <body>
   <a href="${ctx}/admin/admin.jsp">管理员登录</a>
+  <a href="${ctx}/student/index.jsp">学员登录</a>
 
   </body>
 </html>
