@@ -4,6 +4,16 @@
 <html>
 <head>
     <title>班级学员管理</title>
+    <script src="${ctx}/static/js/jquery-1.12.3.min.js"></script>
+    <script>
+        $(function () {
+
+            $('a.remove').click(function () {
+                return confirm("DEL?");
+            });
+        });
+
+    </script>
 </head>
 <body>
 <h1>班级学员管理</h1>
@@ -21,23 +31,22 @@
         <th>学生状态</th>
         <th colspan="2">操作</th>
     </tr>
-    ${sessionScope.classToStudents}
-    <%--<c:forEach var="classes" items="${sessionScope.classes}" varStatus="vs">--%>
-        <%--<tr>--%>
-            <%--<td>${vs.count}</td>--%>
-            <%--<td>${sessionScope.classes.id}</td>--%>
-            <%--<td>${sessionScope.classes.title}</td>--%>
-            <%--<td>${classes.students.id}</td>--%>
-            <%--<td>${classes.students.username}</td>--%>
-            <%--<td>${classes.students.number}</td>--%>
-            <%--<td>${classes.students.startDate}</td>--%>
-            <%--<td>${classes.students.finishDate}</td>--%>
-            <%--<td>${classes.students.studentState}</td>--%>
-            <%--<td><a href="">移除学员</a></td>--%>
-            <%--<td><a href="">加入班级</a></td>--%>
-        <%--</tr>--%>
-    <%--</c:forEach>--%>
-
+    <c:forEach var="student" items="${sessionScope.classes.students}" varStatus="vs">
+        <tr>
+            <td>${vs.count}</td>
+            <td>${sessionScope.classes.id}</td>
+            <td>${sessionScope.classes.title}</td>
+            <td>${student.id}</td>
+            <td>${student.username}</td>
+            <td>${student.number}</td>
+            <td>${student.startDate}</td>
+            <td>${student.finishDate}</td>
+            <td>${student.studentState}</td>
+            <td><a class="remove" href="${ctx}/classes/removeStudent/${student.id}&${sessionScope.classes.id}">移除学员</a>
+            </td>
+            <td><a href="">加入班级</a></td>
+        </tr>
+    </c:forEach>
 
 
 </table>

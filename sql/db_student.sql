@@ -116,6 +116,7 @@ REFERENCES db_demo.class (id);
 
 SELECT *
 FROM db_demo.student;
+
 SELECT *
 FROM db_demo.class;
 INSERT INTO db_demo.class VALUES (NULL ,'java02','2016-06-01','2016-06-01',15000,'zhangsan','ing');
@@ -150,4 +151,3 @@ select
   s.studentState
 from class c,student s where c.id = s.classId and  c.id = 1
 
-select * from

@@ -29,8 +29,6 @@ public class AdminServiceImpl extends GenericServiceImpl<Admin, Integer> impleme
         String plainPassword = admin.getPassword();
         AdminDao adminDao = (AdminDao) super.genericDao;
         List<Admin> admins = adminDao.list("admin.login", admin.getUsername());
-        System.out.println(admins);
-
         if (admins.size() == 1) {
             admin = admins.get(0);
             String encryptedPassword = admin.getPassword();
