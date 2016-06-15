@@ -34,7 +34,7 @@ public class StudentController extends BaseController {
             return "redirect:/student/queryWork";
         } else {
             request.setAttribute("message", "invalid username or password!");
-            return "/student/index";
+            return "index";
         }
     }
 
