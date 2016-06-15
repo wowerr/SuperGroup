@@ -38,12 +38,6 @@ public class StudentController extends BaseController {
         }
     }
 
-    @RequestMapping("/queryWork")
-    private String queryWork(Work work) {
-        session.setAttribute("works", studentService.list("student.queryWork", work));
-        return "redirect:/student/student.jsp";
-    }
-
     @RequestMapping("/createStudent")
     private String createAssistant(Student student) {
         student.setPassword(Encryptor.getEncryptor().encryptPassword(student.getPassword()));

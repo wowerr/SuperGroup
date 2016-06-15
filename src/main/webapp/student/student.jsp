@@ -20,10 +20,9 @@
   <a href="">班级信息</a><br>
   <a href="">班级动态</a><br>
   <a href="">学院动态</a><br>
-  <a href="">班级邮件</a><br>
   <a href="">就业信息</a>
   <hr>
-  <h4>学生动态</h4>
+  <h4>就业信息</h4>
   ${sessionScope.works}
   </body>
 </html>

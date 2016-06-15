@@ -57,11 +57,6 @@
         WHERE id =#{id}
     </delete>
 
-    <select id="queryWork" resultType="work">
-        SELECT *
-        FROM db_demo.work
-    </select>
-
     <resultMap id="student_map" type="classes">
         <id property="id" column="id"/>
         <result property="title" column="title"/>
