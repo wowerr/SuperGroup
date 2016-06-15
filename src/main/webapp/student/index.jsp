@@ -13,7 +13,7 @@
   </head>
   <body>
 <form action="/student/login" method="post">
-  <input type="text" name="username" value="student1"><br>
+  <input type="text" name="email" value="test1@qq.com"><br>
   <input type="password" name="password" value="123"><br>
   <input type="submit" value="登陆">
 </form>

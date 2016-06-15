@@ -13,8 +13,8 @@
   </head>
   <body>
   <h1>welcome....${sessionScope.student.username}</h1>
-<a href="">个人首页</a>
-<a href="">注销</a>
+  <a href="${ctx}/student/queryById/${sessionScope.student.id}">个人首页</a><br>
+<a href="${ctx}/student/logout">注销</a>
   <hr>
   <a href="${ctx}/student/queryById/${sessionScope.student.id}">个人首页</a><br>
   <a href="">班级信息</a><br>
