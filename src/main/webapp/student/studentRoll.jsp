@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>学籍管理</h1>
-<a href="">注销</a>
+<a href="${ctx}/admin/logout">注销</a>
 <a href="${ctx}/student/addStudent.jsp">新增学生</a>
 <form action="${ctx}/student/searchClassById" method="post">
     <select id="id" name="id">

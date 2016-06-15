@@ -13,4 +13,5 @@ public class Work extends BaseModel{
     private String workUnit;
     private String position;
     private Integer studentId;
+    private Student student;
 }

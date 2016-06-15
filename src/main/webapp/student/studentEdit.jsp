@@ -24,7 +24,7 @@
 <body>
 <div class="container">
     <div class="jumbotron">
-        <h1 class="text-center">修改学生信息</h1>
+        <h1 class="text-center">修改个人信息</h1>
     </div>
     ${sessionScope.studentSelf}
     <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
@@ -32,29 +32,19 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="classId">班级</label>
             <div class="col-sm-4">
-                <select class="form-control" id="classId" name="classId">
-                    <c:forEach var="aClass" items="${sessionScope.classes}">
-                        <option value="${aClass.id}">${aClass.title}</option>
-                    </c:forEach>
-                </select>
+                <input class="form-control" id="classId" type="text" name="username"  value="${sessionScope.studentSelf.classes.title}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">用户名</label>
             <div class="col-sm-4">
-                <input class="form-control" id="username" type="text" name="username"  value="${sessionScope.studentSelf.username}">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="password">密码</label>
-            <div class="col-sm-4">
-                <input class="form-control" id="password" type="password" name="password" value="${sessionScope.studentSelf.password}">
+                <input class="form-control" id="username" type="text" name="username"  value="${sessionScope.studentSelf.username}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="number">学员编号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="number" type="text" name="number" value="${sessionScope.studentSelf.number}">
+                <input class="form-control" id="number" type="text" name="number" value="${sessionScope.studentSelf.number}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
@@ -67,7 +57,7 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="idNumber">身份证号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="idNumber" type="text" name="idNumber" value="${sessionScope.studentSelf.idNumber}">
+                <input class="form-control" id="idNumber" type="text" name="idNumber" value="${sessionScope.studentSelf.idNumber}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">

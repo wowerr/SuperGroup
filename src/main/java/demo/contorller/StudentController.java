@@ -31,7 +31,7 @@ public class StudentController extends BaseController {
         student = studentService.login(student);
         if (student != null) {
             session.setAttribute("student", student);
-            return "redirect:/student/queryWork";
+            return "redirect:/work/queryWork";
         } else {
             request.setAttribute("message", "invalid username or password!");
             return "/student/index";
@@ -48,7 +48,7 @@ public class StudentController extends BaseController {
     @RequestMapping("/editStudent")
     private String modify(Student student) {
         studentService.modify(student);
-        return "redirect:/student/queryAll";
+        return "redirect:/student/student.jsp";
     }
 
     @RequestMapping("/removeStudent/{id}")
@@ -68,6 +68,12 @@ public class StudentController extends BaseController {
     private String queryById(@PathVariable("id") Integer id) {
         session.setAttribute("studentSelf", studentService.search("student.queryById", id));
         return "redirect:/student/editStudent.jsp";
+    }
+    @RequestMapping("/queryByIdStudent/{id}")
+    private String queryByIdStudent(@PathVariable("id") Integer id) {
+        System.out.print(id);
+        session.setAttribute("studentSelf", studentService.search("student.studentIdClass", id));
+        return "redirect:/student/studentEdit.jsp";
     }
 
     @RequestMapping("/searchClassStudent/{id}")

@@ -31,5 +31,10 @@ public class AdminController extends BaseController {
         }
 
     }
+    @RequestMapping("/logout")
+    private String logout(){
+        session.invalidate();
+        return "/index";
+    }
 
 }

@@ -31,17 +31,12 @@
     <update id="modify">
         UPDATE db_demo.student s
         SET
-            s.username = #{username},
-            s.password = #{password},
-            s.number = #{number},
             s.gender = #{gender},
-            s.idNumber = #{idNumber},
             s.tel = #{tel},
             s.email = #{email},
             s.startDate = #{startDate},
             s.finishDate = #{finishDate},
-            s.studentState = #{studentState},
-            s.classId = #{classId}
+            s.studentState = #{studentState}
         WHERE s.id = #{id}
     </update>
     <select id="search" resultType="student" parameterType="student">
@@ -102,5 +97,42 @@
         FROM db_demo.class c INNER JOIN db_demo.student s
                 ON c.id = s.classId
         WHERE c.id = #{id};
+    </select>
+
+    <resultMap id="studentIdClass_map" type="student">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="number" column="number"/>
+        <result property="gender" column="gender"/>
+        <result property="idNumber" column="idNumber"/>
+        <result property="tel" column="tel"/>
+        <result property="email" column="email"/>
+        <result property="startDate" column="startDate_student"/>
+        <result property="finishDate" column="finishDate_student"/>
+        <result property="studentState" column="studentState"/>
+        <result property="classId" column="classId"/>
+        <association property="classes" javaType="classes">
+            <id property="id" column="class_id"/>
+            <result property="title" column="title"/>
+        </association>
+    </resultMap>
+    <select id="studentIdClass" parameterType="int" resultMap="studentIdClass_map">
+        SELECT
+            s.id,
+            s.username,
+            s.number,
+            s.gender,
+            s.idNumber,
+            s.tel,
+            s.email,
+            s.startDate  AS startDate_student,
+            s.finishDate AS finishDate_student,
+            s.studentState,
+            s.classId,
+            c.id AS class_id,
+            c.title
+        FROM db_demo.class c INNER JOIN db_demo.student s
+                ON c.id = s.classId
+        WHERE s.id = #{id};
     </select>
 </mapper>

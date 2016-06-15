@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>${sessionScope.classesStudents.title}班级学生管理</h1>
-<a href="">注销</a>
+<a href="${ctx}/admin/logout">注销</a>
 <div style="text-align: center">
     <hr>
     <h2>${sessionScope.classesStudents.teacher}</h2>

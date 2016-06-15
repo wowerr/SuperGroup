@@ -139,7 +139,6 @@ INSERT INTO db_demo.student VALUES
 
 
 
-
 SELECT *
 FROM student;
 

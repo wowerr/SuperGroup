@@ -1,3 +1,22 @@
+ul, li {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: #999;
+}
+
+ul {
+    height: 250px;
+    overflow: hidden;
+}
+/*ul li {*/
+/*line-height: 20px;*/
+/*height: 20px;*/
+/*}*/
+.boxsize{
+    width: 500px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -52,17 +71,6 @@ p.j,
 p.b {
     margin: 10px 0;
     font-size: 20px;
-}
-
-p.option {
-    text-indent: 2em;
-}
-
-#optionA,
-#optionB,
-#optionC,
-#optionD {
-    width: 100%;
 }
 
 textarea {

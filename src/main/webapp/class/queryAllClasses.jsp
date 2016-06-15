@@ -8,7 +8,7 @@
 <body>
 
 <a href="${ctx}/student/queryAll">学籍管理</a><br>
-<a href="${ctx}/work/queryAll">学生就业信息管理</a><br>
+<a href="${ctx}/work/queryAllWork">学生就业信息管理</a><br>
 <a href="${ctx}/class/classes.jsp">添加班级</a><br>
 <a href="${ctx}/classes/query">发布公告</a>
 <table border="1">
