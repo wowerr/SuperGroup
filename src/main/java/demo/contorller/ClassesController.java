@@ -36,6 +36,19 @@ public class ClassesController extends BaseController {
         return "redirect:/class/queryAllClasses.jsp";
     }
 
+    //为添加班级公告而查询班级信息
+    @RequestMapping("/query")
+    private String query() {
+        list();
+        return "redirect:/notice/index.jsp";
+    }
+
+    @RequestMapping("/queryClasses")
+    private String queryClasses() {
+        list();
+        return "redirect:/admin/addStudent.jsp";
+    }
+
     @RequestMapping("searchById/{id}")
     private String search(@PathVariable("id") Integer id) {
         session.setAttribute("aClasses", classesService.search(id));
@@ -57,7 +70,7 @@ public class ClassesController extends BaseController {
     @RequestMapping("removeStudent/{id}&{classID}")
     private String removeStudent(@PathVariable("id") Integer studentId, @PathVariable("classID") Integer id) {
 
-        studentService.remove(studentId);
+        studentService.modify("student.removeFromClasses",studentId);
 
         return searchClassStudent(id);
     }

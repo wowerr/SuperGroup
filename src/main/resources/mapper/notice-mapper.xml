@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="notice">
+    <insert id="create" parameterType="notice" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_demo.notice VALUES (
+            NULL,
+            #{notice},
+            #{classId}
+        );
+    </insert>
+
+    <select id="list" parameterType="int" resultType="notice">
+        SELECT *
+        FROM db_demo.notice
+        WHERE classId = #{classId};
+    </select>
+
+    <select id="search" parameterType="int" resultType="notice">
+        SELECT *
+        FROM db_demo.notice
+        WHERE id = #{id};
+    </select>
+
+    <update id="modify">
+        UPDATE db_demo.notice
+        SET
+            notice = #{notice}
+        WHERE classId = #{classId};
+    </update>
+
+    <delete id="remove">
+        DELETE FROM db_demo.notice
+        WHERE id =#{id}
+    </delete>
+
+</mapper>

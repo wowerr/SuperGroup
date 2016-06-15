@@ -37,6 +37,7 @@ public class GenericDaoImpl<T extends Serializable, ID extends Number> implement
         sqlSession.insert(namespace + ".create", model);
     }
 
+
     @Override
     public void remove(ID id) {
         sqlSession.delete(namespace+".remove",id);
@@ -45,6 +46,11 @@ public class GenericDaoImpl<T extends Serializable, ID extends Number> implement
     @Override
     public void modify(T model) {
         sqlSession.update(namespace + ".modify", model);
+    }
+
+    @Override
+    public void modify(String statement, Object parameter) {
+        sqlSession.update(statement, parameter);
     }
 
     @Override

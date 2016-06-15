@@ -60,5 +60,24 @@
         WHERE c.id = #{id};
     </select>
 
+    <resultMap id="notice_map" type="classes">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <collection property="notices" ofType="notice">
+            <id property="id" column="id_notice"/>
+            <result property="notice" column="notice"/>
+        </collection>
+    </resultMap>
+    <select id="searchNotice" parameterType="int" resultMap="notice_map">
+        SELECT
+            c.id,
+            c.title,
+            n.id AS id_notice,
+            n.notice
+        FROM db_demo.class c INNER JOIN db_demo.notice n
+                ON c.id = n.classId
+        WHERE c.id = #{id};
+    </select>
+
 
 </mapper>

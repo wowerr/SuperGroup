@@ -31,6 +31,11 @@ public abstract class GenericServiceImpl<T extends Serializable, ID extends Numb
     }
 
     @Override
+    public void modify(String statement, Object parameter) {
+        genericDao.modify(statement, parameter);
+    }
+
+    @Override
     public List<T> list() {
         return genericDao.list();
     }
