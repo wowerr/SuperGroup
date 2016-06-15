@@ -17,8 +17,6 @@ SELECT *
 FROM db_demo.admin;
 
 
-
-
 DROP TABLE IF EXISTS db_demo.class;
 CREATE TABLE db_demo.class (
   id         INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
@@ -76,11 +74,11 @@ DROP TABLE IF EXISTS db_demo.work;
 CREATE TABLE db_demo.work (
   id        INT UNSIGNED AUTO_INCREMENT PRIMARY KEY
   COMMENT 'PK',
-  workUnit  VARCHAR(30) NOT NULL
+  workUnit  VARCHAR(30)        NOT NULL
   COMMENT '工作单位',
-  position  VARCHAR(8)  NOT NULL
+  position  VARCHAR(8)         NOT NULL
   COMMENT '职位',
-  studentId INT       UNSIGNED  NOT NULL
+  studentId INT       UNSIGNED NOT NULL
   COMMENT 'fk 学员id'
 );
 
@@ -90,7 +88,7 @@ CREATE TABLE db_demo.notice (
   COMMENT 'PK',
   notice  VARCHAR(255) NOT NULL
   COMMENT '公告',
-  classId INT UNSIGNED   NOT NULL
+  classId INT UNSIGNED NOT NULL
   COMMENT 'fk 班级id'
 )
   COMMENT '学院公告表';
@@ -119,36 +117,32 @@ FROM db_demo.student;
 
 SELECT *
 FROM db_demo.class;
-INSERT INTO db_demo.class VALUES (NULL ,'java02','2016-06-01','2016-06-01',15000,'zhangsan','ing');
-INSERT INTO db_demo.class VALUES (NULL ,'java01','2016-06-01','2016-06-01',15000,'zhangsan','ing');
-INSERT INTO db_demo.class VALUES (NULL ,'java03','2016-06-01','2016-06-01',15000,'哈哈','ing');
+INSERT INTO db_demo.class VALUES (NULL, 'java02', '2016-06-01', '2016-06-01', 15000, 'zhangsan', 'ing');
+INSERT INTO db_demo.class VALUES (NULL, 'java01', '2016-06-01', '2016-06-01', 15000, 'zhangsan', 'ing');
+INSERT INTO db_demo.class VALUES (NULL, 'java03', '2016-06-01', '2016-06-01', 15000, '哈哈', 'ing');
+
+INSERT INTO db_demo.student VALUES
+  (NULL, 'student1', '13do3DeGj6b8Nxf0l3+J/ER05/yQzbHHPkaIhb4m01f+p0nj14OrJEIts4K2qZ3m', '20160101', '男',
+         '110111199101011212', '11111111111', 'test@qq.com', '2016-06-05', '2016-06-22', 'ing', 1);
+
+INSERT INTO db_demo.student VALUES
+  (NULL, 'student2', '13do3DeGj6b8Nxf0l3+J/ER05/yQzbHHPkaIhb4m01f+p0nj14OrJEIts4K2qZ3m', '20160102', '男',
+         '110111199101011212', '11111111111', 'test1@qq.com', '2016-06-05', '2016-06-22', 'ing', 1);
+
+INSERT INTO db_demo.student VALUES
+  (NULL, 'student3', '13do3DeGj6b8Nxf0l3+J/ER05/yQzbHHPkaIhb4m01f+p0nj14OrJEIts4K2qZ3m', '20160103', '男',
+         '110111199101011212', '11111111111', 'test2@qq.com', '2016-06-05', '2016-06-22', 'ing', 1);
+
+INSERT INTO db_demo.student VALUES
+  (NULL, 'student4', '13do3DeGj6b8Nxf0l3+J/ER05/yQzbHHPkaIhb4m01f+p0nj14OrJEIts4K2qZ3m', '20160104', '男',
+         '110111199101011212', '11111111111', 'test3@qq.com', '2016-06-05', '2016-06-22', 'ing', 1);
+
+
+
+
 SELECT *
 FROM student;
 
-SELECT
-  c.id,
-  c.title,
-  s.id         AS id_student,
-  s.username,
-  s.number,
-  s.startDate  AS startDate_student,
-  s.finishDate AS finishDate_student,
-  s.studentState
-FROM db_demo.class c INNER JOIN db_demo.student s
-    ON c.id = s.classId
-WHERE c.id = 1;
-
-
-select
-  c.id,
-  c.title,
-  s.id         AS id_student,
-  s.username,
-  s.number,
-  s.startDate  AS startDate_student,
-  s.finishDate AS finishDate_student,
-  s.studentState
-from class c,student s where c.id = s.classId and  c.id = 1;
 
 
 

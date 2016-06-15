@@ -22,6 +22,7 @@ public class Classes extends BaseModel {
     private String classState;
     //one to many
     private List<Student> students;
+    private List<Notice> notices;
 
 
 }

@@ -9,6 +9,7 @@
 
 <a href="${ctx}/student/queryAllStudent">学籍管理</a><br>
 <a href="${ctx}/class/classes.jsp">添加班级</a><br>
+<a href="${ctx}/classes/query">发布公告</a>
 <table border="1">
     <tr>
         <th>序号</th>
@@ -33,7 +34,7 @@
             <td>${aclass.classState}</td>
             <td><a href="${ctx}/classes/searchById/${aclass.id}">修改班级信息</a></td>
             <td><a href="${ctx}/classes/searchClassStudent/${aclass.id}">班级学员管理</a></td>
-            <td><a href="">班级公告发布</a></td>
+            <td><a href="${ctx}/notice/queryByClassId/${aclass.id}">公告管理</a></td>
         </tr>
     </c:forEach>
 </table>

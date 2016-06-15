@@ -5,7 +5,7 @@
 
 <mapper namespace="student">
 
-    <update id="remove" parameterType="int">
+    <update id="removeFromClasses" parameterType="int">
 
         UPDATE db_demo.student SET classId = NULL
         WHERE id = #{id}
