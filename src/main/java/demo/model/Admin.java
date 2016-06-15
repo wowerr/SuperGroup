@@ -13,4 +13,5 @@ public class Admin extends BaseModel {
     private String username;
     private String password;
 
+
 }

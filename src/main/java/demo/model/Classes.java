@@ -3,7 +3,6 @@ package demo.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,5 +22,6 @@ public class Classes extends BaseModel {
     private String classState;
     //one to many
     private List<Student> students;
+
 
 }

@@ -13,7 +13,7 @@
             #{cost},
             #{teacher},
             #{classState}
-        )
+        );
     </insert>
     <select id="list" resultType="classes">
         SELECT *
@@ -24,13 +24,13 @@
         UPDATE db_demo.class
         SET
             title = #{title}, startDate = #{startDate}, finishDate = #{finishDate}, cost = #{cost}, teacher = #{teacher}, classState=#{classState}
-        WHERE id = #{id}
+        WHERE id = #{id};
     </update>
 
     <select id="search" resultType="classes">
         SELECT *
         FROM db_demo.class
-        WHERE id = #{id}
+        WHERE id = #{id};
     </select>
 
     <resultMap id="student_map" type="classes">
@@ -45,7 +45,6 @@
             <result property="studentState" column="studentState"/>
         </collection>
     </resultMap>
-
     <select id="searchStudent" parameterType="int" resultMap="student_map">
         SELECT
             c.id,
@@ -56,9 +55,9 @@
             s.startDate  AS startDate_student,
             s.finishDate AS finishDate_student,
             s.studentState
-        FROM db_demo.class c LEFT JOIN db_demo.student s
+        FROM db_demo.class c INNER JOIN db_demo.student s
                 ON c.id = s.classId
-        WHERE c.id = #{id}
+        WHERE c.id = #{id};
     </select>
 
 
