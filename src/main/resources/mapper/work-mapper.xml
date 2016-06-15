@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="work">
+
+<resultMap id="query_map" type="student">
+<id property="id" column="id"/>
+<result property="username" column="username"/>
+<collection property="works" ofType="work">
+   <result property="id" column="id_work"/>
+    <result property="workUnit" column="workUnit"/>
+    <result property="position" column="position"/>
+    <result property="studentId" column="studentId"/>
+</collection>
+</resultMap>
+
+<select id="query" resultMap="query_map">
+    SELECT
+      s.id,
+      s.username,
+      w.id  AS id_work,
+      w.workUnit,
+      w.position,
+      w.studentId
+    FROM db_demo.student s LEFT JOIN db_demo.work w
+    ON s.id = w.studentId
+    ORDER BY 1;
+
+</select>
+
+    <update id="modify">
+        UPDATE db_demo.work
+        SET
+        workUnit = #{workUnit},
+        position = #{position},
+        studentId = #{studentId}
+        WHERE id = #{id}
+    </update>
+
+
+    <insert id="create" parameterType="Work" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO db_demo.work (
+            workUnit,
+            position,
+            studentId
+        )
+        VALUES (
+            #{workUnit},
+            #{position},
+            #{studentId}
+        )
+
+    </insert>
+
+    <delete id="remove">
+        DELETE  FROM db_demo.work
+        WHERE id = #{id}
+    </delete>
+
+    <select id="search" resultType="work">
+        SELECT * FROM db_demo.work
+        WHERE id = #{id}
+    </select>
+
+
+</mapper>
