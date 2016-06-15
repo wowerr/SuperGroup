@@ -4,19 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="student">
-
-    <update id="removeFromClasses" parameterType="int">
-
-        UPDATE db_demo.student SET classId = NULL
-        WHERE id = #{id}
-
-    </update>
-
-
     <select id="login" resultType="student" parameterType="student">
         SELECT *
         FROM db_demo.student
-        WHERE username = #{username}
+        WHERE email = #{email}
     </select>
     <insert id="create" parameterType="student" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO db_demo.student VALUES (
@@ -35,42 +26,7 @@
         )
     </insert>
 
-    <resultMap id="students_map" type="student">
-        <id property="id" column="sid"/>
-        <result property="username" column="username"/>
-        <result property="number" column="number"/>
-        <result property="gender" column="gender"/>
-        <result property="idNumber" column="idNumber"/>
-        <result property="tel" column="tel"/>
-        <result property="email" column="email"/>
-        <result property="startDate" column="startDate"/>
-        <result property="finishDate" column="finishDate"/>
-        <result property="studentState" column="studentState"/>
-        <association property="classes" javaType="classes">
-            <result property="id" column="id"/>
-            <result property="title" column="title"/>
-        </association>
-    </resultMap>
-    <select id="queryClassesStudent" parameterType="int" resultMap="students_map">
-        SELECT
-            c.id,
-            c.title,
-            s.id AS sid,
-            s.username,
-            s.number,
-            s.gender,
-            s.idNumber,
-            s.tel,
-            s.email,
-            s.startDate,
-            s.finishDate,
-            s.studentState
-        FROM db_demo.class c LEFT JOIN db_demo.student s
-                ON c.id = s.classId
-        WHERE c.id=#{id}
-    </select>
-
-    <update id="modify" parameterType="int">
+    <update id="modify">
         UPDATE db_demo.student s
         SET
             s.username = #{username},
@@ -84,18 +40,70 @@
             s.finishDate = #{finishDate},
             s.studentState = #{studentState},
             s.classId = #{classId}
-        WHERE id = #{id}
+        WHERE s.id = #{id}
     </update>
-<select id="search" resultType="student" parameterType="student">
-    SELECT * FROM db_demo.student
-</select>
-    <select id="queryById" resultType="student" parameterType="int">
-        SELECT * FROM db_demo.student WHERE id=#{id}
+    <select id="search" resultType="student" parameterType="student">
+        SELECT *
+        FROM db_demo.student
     </select>
+    <select id="queryById" resultType="student" parameterType="int">
+        SELECT *
+        FROM db_demo.student
+        WHERE id =#{id}
+    </select>
+
     <delete id="remove">
-        DELETE FROM db_demo.student WHERE id=#{id}
+        DELETE FROM db_demo.student
+        WHERE id =#{id}
     </delete>
+
     <select id="queryWork" resultType="work">
-        SELECT * FROM db_demo.work
+        SELECT *
+        FROM db_demo.work
+    </select>
+
+    <resultMap id="student_map" type="classes">
+        <id property="id" column="id"/>
+        <result property="title" column="title"/>
+        <result property="teacher" column="teacher"/>
+        <result property="startDate" column="startDate"/>
+        <result property="finishDate" column="finishDate"/>
+        <result property="classState" column="classState"/>
+        <collection property="students" ofType="student">
+            <id property="id" column="id_student"/>
+            <result property="username" column="username"/>
+            <result property="number" column="number"/>
+            <result property="gender" column="gender"/>
+            <result property="idNumber" column="idNumber"/>
+            <result property="tel" column="tel"/>
+            <result property="email" column="email"/>
+            <result property="startDate" column="startDate_student"/>
+            <result property="finishDate" column="finishDate_student"/>
+            <result property="studentState" column="studentState"/>
+            <result property="classId" column="classId"/>
+        </collection>
+    </resultMap>
+    <select id="searchStudent" parameterType="int" resultMap="student_map">
+        SELECT
+            c.id,
+            c.title,
+            c.teacher,
+            c.startDate,
+            c.finishDate,
+            c.classState,
+            s.id         AS id_student,
+            s.username,
+            s.number,
+            s.gender,
+            s.idNumber,
+            s.tel,
+            s.email,
+            s.startDate  AS startDate_student,
+            s.finishDate AS finishDate_student,
+            s.studentState,
+            s.classId
+        FROM db_demo.class c INNER JOIN db_demo.student s
+                ON c.id = s.classId
+        WHERE c.id = #{id};
     </select>
 </mapper>

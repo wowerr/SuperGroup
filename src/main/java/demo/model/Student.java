@@ -22,7 +22,7 @@ public class Student extends BaseModel {
     private String startDate;
     private String finishDate;
     private String studentState;
-    private String classId;
+    private Integer classId;
     //many to one
     private Classes classes;
 

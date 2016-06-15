@@ -11,60 +11,44 @@
 <head>
     <title>admin index</title>
 </head>
-<script>
-    console.log(${sessionScope.students})
-</script>
 <body>
 <h1>学籍管理</h1>
 <a href="">注销</a>
 <a href="${ctx}/student/addStudent.jsp">新增学生</a>
-<form action="${ctx}/student/queryClassesStudents" method="post">
-    <select>
+<form action="${ctx}/student/searchClassById" method="post">
+    <select id="id" name="id">
         <c:forEach var="aClass" items="${sessionScope.classes}">
-            <option name="id" value="${aClass.id}">${aClass.title}</option>
+            <option value="${aClass.id}">${aClass.title}</option>
         </c:forEach>
     </select>
-    <%--<input type="text" name="username" placeholder="用户名">--%>
     <input type="submit" value="查询">
 </form>
+${sessionScope.searchClass}
 <hr>
 <div style="text-align: center">
-    ${sessionScope.classes}
-    <%--<p><a href="${ctx}/classes/searchClassStudent/${sessionScope.classes.id}">${sessionScope.classes.title}</a></p>--%>
-    <%--<p>${sessionScope.aClass.startDate} - ${sessionScope.aClass.finishDate}</p>--%>
-</div>
+
 <table border="1">
     <tr>
         <th>序号</th>
-        <th>班级名</th>
-        <th>用户名</th>
-        <th>学号</th>
-        <th>性别</th>
-        <th>身份证号</th>
-        <th>电话</th>
-        <th>邮箱</th>
-        <th>入训日期</th>
-        <th>结业日期</th>
-        <th>学生状态</th>
-        <th colspan="2">操作</th>
+        <th>班级名称</th>
+        <th>开班时间</th>
+        <th>结业时间</th>
+        <th>费用</th>
+        <th>班主任</th>
+        <th>班级状态</th>
     </tr>
-    <c:forEach var="classStudent" items="${sessionScope.classStudents}" varStatus="vs">
+    <c:forEach var="aclass" items="${sessionScope.classes}" varStatus="vs">
         <tr>
             <td>${vs.count}</td>
-
-            <td>${classStudent.username}</td>
-            <td>${classStudent.number}</td>
-            <td>${classStudent.gender}</td>
-            <td>${classStudent.idNumber}</td>
-            <td>${classStudent.tel}</td>
-            <td>${classStudent.email}</td>
-            <td>${classStudent.startDate}</td>
-            <td>${classStudent.finishDate}</td>
-            <td>${classStudent.studentState}</td>
-            <td><a href="${ctx}/student/queryById/${classStudent.id}">编辑</a></td>
-            <td><a class="remove" href="${ctx}/student/removeStudent/${classStudent.id}">删除</a></td>
+            <td> <a href="${ctx}/student/searchClassStudent/${aclass.id}">${aclass.title}</a></td>
+            <td>${aclass.startDate}</td>
+            <td>${aclass.finishDate}</td>
+            <td>${aclass.cost}</td>
+            <td>${aclass.teacher}</td>
+            <td>${aclass.classState}</td>
         </tr>
     </c:forEach>
 </table>
+    </div>
 </body>
 </html>

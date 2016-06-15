@@ -29,7 +29,7 @@ public class StudentServiceImpl extends GenericServiceImpl<Student,Integer>  imp
     public Student login(Student student) {
         String plainPassword = student.getPassword();
         StudentDao studentDao = (StudentDao) super.genericDao;
-        List<Student> students = studentDao.list("student.login", student.getUsername());
+        List<Student> students = studentDao.list("student.login", student.getEmail());
         if (students.size() == 1) {
             student = students.get(0);
             String encryptedPassword = student.getPassword();
