@@ -7,25 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40244324-babf-472e-b28f-888bd3db5d5d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/static/js/supergroup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/work/editWork.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sql/db_student.sql" afterPath="$PROJECT_DIR$/sql/db_student.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/demo/contorller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/demo/contorller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/demo/contorller/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/demo/contorller/StudentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/demo/contorller/WorkController.java" afterPath="$PROJECT_DIR$/src/main/java/demo/contorller/WorkController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/demo/model/Work.java" afterPath="$PROJECT_DIR$/src/main/java/demo/model/Work.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/student-mapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/student-mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/work-mapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/work-mapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/class/queryAllClasses.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/class/queryAllClasses.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" afterPath="$PROJECT_DIR$/src/main/webapp/static/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/student/classStudent.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/student/classStudent.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/student/student.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/student/student.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/student/studentEdit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/student/studentEdit.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/student/studentRoll.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/student/studentRoll.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/work/addWork.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/work/addWork.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/work/manageWork.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/work/manageWork.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1496,7 +1478,7 @@
       <workItem from="1465816430371" duration="12029000" />
       <workItem from="1465864010847" duration="3726000" />
       <workItem from="1465868549501" duration="20022000" />
-      <workItem from="1465952600284" duration="45803000" />
+      <workItem from="1465952600284" duration="46061000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1465718635094</created>
@@ -1540,11 +1522,17 @@
       <option name="project" value="LOCAL" />
       <updated>1465977524659</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/main/java/demo/contorller/ClassesController.java&#10;#&#9;src/main/java/demo/model/Admin.java&#10;#&#9;src/main/java/demo/model/Classes.java&#10;#&#9;src/main/java/demo/model/Student.java&#10;">
+      <created>1466009625071</created>
+      <option name="number" value="00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1466009625071</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87369000" />
+    <option name="totallyTimeSpent" value="87627000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
