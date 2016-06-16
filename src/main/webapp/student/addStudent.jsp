@@ -20,8 +20,52 @@
             $('input[type=file]').bootstrapFileInput();
         });
     </script>
+    <style type="text/css">
+        .boxsize {
+            width: 500px;
+        }
+
+        #navHeah {
+            height: 100px;
+            background-image: url("${ctx}/static/image/bg1.png");
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1, h5 {
+            color: #c7ddef;
+        }
+        li>h4>a {
+            color: #c7ddef;
+        }
+        .kb {
+            margin-top: 3em;
+        }
+    </style>
 </head>
 <body>
+
+<nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="container-fluid">
+        <div class="navbar-header">
+            <ul class=" nav navbar-nav">
+                <li>
+                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
+            </ul>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><h4>欢迎 admin &nbsp;&nbsp;&nbsp;&nbsp; </h4></li>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <li><h4><a href="${ctx}/admin/logout">注销</a></h4></li>
+            </ul>
+        </div>
+    </ul>
+</nav>
+<div class="kb"></div>
 <div class="container">
     <div class="jumbotron">
         <h1 class="text-center">新增学生</h1>

@@ -56,6 +56,13 @@
             width: 280px;
             height: 250px;
         }
+        .nav>li {
+            position: relative;
+            /*display: block;*/
+        }
+        .fieldset{
+            color: #3e8f3e;
+        }
     </style>
 </head>
 <body>
@@ -83,8 +90,8 @@
         <div class="col-lg-2 col-sm-3 col-md-2 sidebar" id="selfHome">
             <ul class="nav nav-sidebar">
                 <li>导航栏</li>
-            <%--</ul>--%>
-            <%--<ul class="nav nav-sidebar">--%>
+            </ul>
+            <ul class="nav nav-sidebar">
                 <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
                 <li><a href="#">班级信息</a></li>
                 <li><a href="#">就业信息</a></li>
@@ -99,7 +106,7 @@
                     <div class="row">
                         <div class="col-sm-3 col-md-5 sidebar">
                             <fieldset>
-                                <legend><h2 class="sub-header">就业信息</h2></legend>
+                                <legend class="fieldset"><h2 class="sub-header">就业信息</h2></legend>
                                 <div class="boxsize">
                                     <ul id="list">
                                         <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
@@ -124,13 +131,12 @@
                         </div>
                     </div>
                 </div>
-
-
+<br><br><br>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-3 col-md-5 sidebar">
                             <fieldset>
-                                <legend><h2 class="sub-header">班级公告</h2></legend>
+                                <legend class="fieldset"><h2 class="sub-header">班级公告</h2></legend>
                                 <div class="boxsize">
                                     <ul id="list1">
                                         <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">

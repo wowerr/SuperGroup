@@ -1,15 +1,15 @@
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
-  Date: 2016/6/13
-  Time: 10:25
+  Date: 2016/6/7
+  Time: 15:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ include file="/common/inc.jsp" %>
 <html>
 <head>
-    <title>admin index</title>
+    <title>学员信息管理系统</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
     <link href="${ctx}/static/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <link href="${ctx}/static/css/bootstrap.min.css" rel="stylesheet"/>
@@ -18,24 +18,27 @@
         body {
             font-size: 18px;
             font-family: "微软雅黑";
-            color: #666;
+            color: #c4e3f3;
             text-align: center;
             background-color: #6495ed;
+            background-image: url("${ctx}/static/image/bg1.png");
         }
 
         .sys {
             border: 2px solid #6495ed;
             border-radius: 20px 30px;
-            margin-left: 120px;
-            margin-right: 180px;
+            margin-left: 200px;
+            margin-right: 200px;
             margin-top: 70px;
-            padding-bottom: 5ex;
             padding-left: 10ex;
-            padding-right: 100px;
-            padding-top: 20px;
-            background-color: #ddd;
-        }
+            padding-right: 50px;
+            padding-top: 10px;
 
+        }
+        h1{
+
+            color: #c4e3f3;
+        }
         .xt {
             margin-right: 80px;
             margin-top: 10px;
@@ -43,23 +46,36 @@
             padding-left: 10ex;
             padding-right: 10px;
             padding-top: 8px;
-        }
 
+        }
+        img{
+            width: 80px;
+            height: 80px;
+        }
+        img.password{
+            width: 30px;
+            height: 30px;
+        }
+        img.user{
+            width: 30px;
+            height: 30px;
+        }
         .login {
             font-size: 0.5em;
-            margin-left: 800px;
+            margin-left: 500px;
             margin-right: 50px;
-            margin-top: 10px;
+            margin-top: 5px;
             margin-buttom: 100px;
-            padding-top: 10px;
-            padding-buttom: 100px;
+            padding-buttom:50px;
             padding-left: 10px;
             padding-right: 10px;
         }
-
+        .loginImage{
+            margin-left: 0px;
+        }
         .dl, .foot {
             margin-right: 0px;
-            margin-top: 30px;
+            margin-top: 10px;
             margin-buttom: 100px;
             padding-top: 110px;
             padding-left: 200px;
@@ -68,23 +84,21 @@
     </style>
 </head>
 <body>
-
 <div class="container">
-    <div class="login"></div>
+    <h1 class="xt"><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1>
     <div class="sys">
-
-        <h2 class="xt">学员信息管理系统</h2>
         <h3 class="xt">管理员登录</h3>
         <form action="/admin/login" method="post">
             <div class="form-group">
 
-                <label for="email" class="col-sm-2 control-label">邮箱：</label>
-                <div class="col-sm-10">
-                    <input type="text" name="username" class="form-control" id="email"
-                           placeholder="用户名" value="admin">
+                <label for="username" class="col-sm-3 control-label"><img class="user" src="${ctx}/static/image/user.png">用户名：</label>
+                <div class="col-sm-6">
+                    <input type="text" name="username" class="form-control" id="username"
+                           placeholder="title" value="admin">
                 </div>
-                <label for="inputPassword" class="col-sm-2 control-label">密码：</label>
-                <div class="col-sm-10">
+                <br><br><br>
+                <label for="inputPassword" class="col-sm-3 control-label"><img class="password" src="${ctx}/static/image/password.png">密码：</label>
+                <div class="col-sm-6">
                     <input type="password" name="password" class="form-control" id="inputPassword"
                            placeholder="密码" value="123">
                 </div>
