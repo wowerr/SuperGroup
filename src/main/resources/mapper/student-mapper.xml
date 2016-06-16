@@ -39,6 +39,14 @@
             s.studentState = #{studentState}
         WHERE s.id = #{id}
     </update>
+
+    <update id="removeFromClasses">
+        UPDATE db_demo.student
+        SET classId = NULL
+        WHERE id = #{id}
+
+    </update>
+
     <select id="search" resultType="student" parameterType="student">
         SELECT *
         FROM db_demo.student
@@ -129,7 +137,7 @@
             s.finishDate AS finishDate_student,
             s.studentState,
             s.classId,
-            c.id AS class_id,
+            c.id         AS class_id,
             c.title
         FROM db_demo.class c INNER JOIN db_demo.student s
                 ON c.id = s.classId

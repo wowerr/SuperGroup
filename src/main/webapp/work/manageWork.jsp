@@ -33,7 +33,7 @@
 </head>
 <body>
 <h1>管理就业信息</h1>
-<a href="${ctx}/work/addWork.jsp">添加就业信息</a><br>
+<a href="${ctx}/student/search">添加就业信息</a><br>
 <hr>
 <h2 class="sub-header">就业信息</h2>
 <div class="boxsize">
