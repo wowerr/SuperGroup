@@ -44,6 +44,9 @@
         h1 a {
             color: #c7ddef;
         }
+        .kb {
+            margin-top: 3em;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +72,7 @@
         </div>
     </ul>
 </nav>
+<div class="kb"></div>
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
@@ -85,8 +89,6 @@
                                         <td>${work.student.username}</td>
                                         <td>${work.workUnit}</td>
                                         <td>${work.position}</td>
-                                        <td><a href="${ctx}/work/queryWorkById/${work.id}">修改</a></td>
-                                        <td><a href="${ctx}/work/removeWork/${work.id}">删除</a></td>
                                     </tr>
                                     </tbody>
                                 </table>

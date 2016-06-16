@@ -15,6 +15,7 @@
     <script src="${ctx}/static/js/jquery-1.12.3.min.js"></script>
     <script src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="${ctx}/static/bootstrap/js/bootstrap.file-input.js"></script>
+    <script src="${ctx}/static/css/style.css"></script>
     <script>
         $(function () {
             $('input[type=file]').bootstrapFileInput();
@@ -29,56 +30,64 @@
             height: 100px;
             background-image: url("${ctx}/static/image/bg1.png");
         }
+
         img {
             width: 80px;
             height: 80px;
         }
+
         h1, h5 {
             color: #c7ddef;
+        }
+        .kb {
+            margin-top: 3em;
         }
     </style>
 </head>
 <body>
-<nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
-    <ul class="container-fluid">
-        <div class="navbar-header">
-            <ul class=" nav navbar-nav">
-                <li>
-                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
-            </ul>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><h4>欢迎 ${sessionScope.student.username}  </h4></li>
-                <li><a href="${ctx}/student/logout">注销</a></li>
-            </ul>
+    <nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
+        <ul class="container-fluid">
+            <div class="navbar-header">
+                <ul class=" nav navbar-nav">
+                    <li>
+                        <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
+                </ul>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><h4>欢迎 ${sessionScope.student.username}  </h4></li>
+                    <li><a href="${ctx}/student/logout">注销</a></li>
+                </ul>
+            </div>
+        </ul>
+    </nav>
 
-        </div>
-        </div>
-    </ul>
-</nav>
+<div class="kb"></div>
 <div class="container">
-
+    <div class="jumbotron">
         <h1 class="text-center">修改个人信息</h1>
-
+    </div>
     <form class="well form-horizontal" action="${ctx}/student/studentEdit" method="post">
         <input type="hidden" name="id" value="${sessionScope.studentSelf.id}">
         <div class="form-group">
             <label class="control-label col-sm-2" for="classId">班级</label>
             <div class="col-sm-4">
-                <input class="form-control" id="classId" type="text" name="username"  value="${sessionScope.studentSelf.classes.title}" readonly="readonly">
+                <input class="form-control" id="classId" type="text" name="username"
+                       value="${sessionScope.studentSelf.classes.title}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="username">用户名</label>
             <div class="col-sm-4">
-                <input class="form-control" id="username" type="text" name="username"  value="${sessionScope.studentSelf.username}" readonly="readonly">
+                <input class="form-control" id="username" type="text" name="username"
+                       value="${sessionScope.studentSelf.username}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="number">学员编号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="number" type="text" name="number" value="${sessionScope.studentSelf.number}" readonly="readonly">
+                <input class="form-control" id="number" type="text" name="number"
+                       value="${sessionScope.studentSelf.number}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
@@ -91,7 +100,8 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="idNumber">身份证号</label>
             <div class="col-sm-4">
-                <input class="form-control" id="idNumber" type="text" name="idNumber" value="${sessionScope.studentSelf.idNumber}" readonly="readonly">
+                <input class="form-control" id="idNumber" type="text" name="idNumber"
+                       value="${sessionScope.studentSelf.idNumber}" readonly="readonly">
             </div>
         </div>
         <div class="form-group">
@@ -103,19 +113,22 @@
         <div class="form-group">
             <label class="control-label col-sm-2" for="email">常用邮箱</label>
             <div class="col-sm-4">
-                <input class="form-control" id="email" type="text" name="email" value="${sessionScope.studentSelf.email}">
+                <input class="form-control" id="email" type="text" name="email"
+                       value="${sessionScope.studentSelf.email}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="startDate">入训日期</label>
             <div class="col-sm-4">
-                <input class="form-control" id="startDate" type="date" name="startDate" value="${sessionScope.studentSelf.startDate}">
+                <input class="form-control" id="startDate" type="date" name="startDate"
+                       value="${sessionScope.studentSelf.startDate}">
             </div>
         </div>
         <div class="form-group">
             <label class="control-label col-sm-2" for="finishDate">退训日期</label>
             <div class="col-sm-4">
-                <input class="form-control" id="finishDate" type="date" name="finishDate" value="${sessionScope.studentSelf.finishDate}">
+                <input class="form-control" id="finishDate" type="date" name="finishDate"
+                       value="${sessionScope.studentSelf.finishDate}">
             </div>
         </div>
         <div class="form-group">
