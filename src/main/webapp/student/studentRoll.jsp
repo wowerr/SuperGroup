@@ -209,6 +209,26 @@
             line-height: 35px;
             padding-left: 20PX;
         }
+        .boxsize {
+            width: 500px;
+        }
+
+        #navHeah {
+            height: 100px;
+            background-image: url("${ctx}/static/image/bg1.png");
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1, h5 {
+            color: #c7ddef;
+        }
+        .kb {
+            margin-top: 7em;
+        }
 
         -->
     </style>
@@ -220,8 +240,8 @@
             <ul>
                 <li><a href="${ctx}/class/queryAllClasses.jsp">首页</a></li>
                 <li><a href="${ctx}/student/addStudent.jsp">新增学生</a></li>
-                <li><a href="#">待开发</a></li>
-                <li><a href="#">待开发</a></li>
+                <li><a href="#">菜单栏</a></li>
+                <li><a href="#">菜单栏</a></li>
                 <li><a href="${ctx}/admin/logout">注销</a></li>
             </ul>
         </div>

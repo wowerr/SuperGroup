@@ -98,7 +98,19 @@
             </ul>
         </div>
         <div class="col-lg-2">就业统计图表
-        <div><img class="jiuye" src="${ctx}/static/image/jiuye.jpg"></div>
+        <div>
+
+            <script>
+                function total(){
+                    var sum=0;
+                    var numargs = arguments.length;
+                    for (i =0 ; i < numargs; i++){
+                        if(!isNaN(arguments[i]))sum += parseFloat(arguments[i]);
+                    }
+                    return(sum);
+                }
+            </script>
+        </div>
         </div>
         <div class="col-lg-8">
             <div class="col-sm-2 col-sm-offset-3 col-md-10 col-md-offset-2 main">
