@@ -64,6 +64,12 @@ public class StudentController extends BaseController {
         return "redirect:/student/studentRoll.jsp";
     }
 
+    @RequestMapping("/search")
+    private String search(Student student) {
+        session.setAttribute("students", studentService.list("student.search", student));
+        return "redirect:/work/addWork.jsp";
+    }
+
     @RequestMapping("/queryById/{id}")
     private String queryById(@PathVariable("id") Integer id) {
         session.setAttribute("studentSelf", studentService.search("student.queryById", id));

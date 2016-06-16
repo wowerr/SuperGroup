@@ -117,8 +117,8 @@ FROM db_demo.student;
 
 SELECT *
 FROM db_demo.class;
+INSERT INTO db_demo.class VALUES (NULL, 'java01', '2016-06-01', '2016-06-01', 15000, 'lisi', 'ing');
 INSERT INTO db_demo.class VALUES (NULL, 'java02', '2016-06-01', '2016-06-01', 15000, 'zhangsan', 'ing');
-INSERT INTO db_demo.class VALUES (NULL, 'java01', '2016-06-01', '2016-06-01', 15000, 'zhangsan', 'ing');
 INSERT INTO db_demo.class VALUES (NULL, 'java03', '2016-06-01', '2016-06-01', 15000, '哈哈', 'ing');
 
 INSERT INTO db_demo.student VALUES
