@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>班级首页</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style type="text/css">
+        .kb {
+            margin-top: 100px;
+        }
+
+        .navbar-brand {
+            font-size: 2em;
+        }
+
+        body {
+            background-color: #ddffee;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#ddffee;">
+    <div class="container">
+        <div class="navbar-header">
+            <p class="navbar-brand">欢迎登录!</p>
+        </div>
+        <p class="navbar-brand"
+           style="font-size: 3em; margin-left: 280px; margin-top: 20px;">班级首页</p>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="">班级首页</a></li>
+            <li class="active"><a href="./">注销<span class="sr-only">(current)</span></a></li>
+        </ul>
+    </div>
+    <!--/.nav-collapse -->
+</nav>
+
+
+<div class="kb"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-2">
+            <ul class="nav nav-sidebar">
+                <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
+                <li><a href="#">个人首页</a></li>
+                <li><a href="#">班级信息</a></li>
+                <li><a href="#">班级动态</a></li>
+                <li><a href="#">就业信息</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-8	">
+            <div class="col-sm-2 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <h1 class="page-header">学员动态</h1>
+
+
+                <div class="row placeholders">
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <img data-src="holder.js/200x200/auto/sky" class="img-responsive"
+                             alt="Generic placeholder thumbnail">
+
+                        <span class="text-muted">Something else</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <img data-src="holder.js/200x200/auto/vine" class="img-responsive"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <img data-src="holder.js/200x200/auto/sky" class="img-responsive"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </div>
+                    <div class="col-xs-6 col-sm-3 placeholder">
+                        <img data-src="holder.js/200x200/auto/vine" class="img-responsive"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </div>
+                </div>
+
+                <h2 class="sub-header">班级动态</h2>
+                <div class="table-responsive">
+                    <div>
+                        d1
+                    </div>
+                    <div>
+                        d2
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

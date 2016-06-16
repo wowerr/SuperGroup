@@ -12,8 +12,8 @@
 
     <style type="text/css">
         img {
-            width: 80px;
-            height: 80px;
+            width: 60px;
+            height: 60px;
         }
 
         h1, h5 {
@@ -37,15 +37,24 @@
         }
 
         #navHeah {
-            height: 100px;
+            height: 80px;
             background-image: url("${ctx}/static/image/bg1.png");
         }
 
-        h1 a {
+        h1,a {
             color: #c7ddef;
         }
+
         .kb {
-            margin-top: 3em;
+            margin-top: 7em;
+        }
+        #selfHome {
+            background-color: #07689d;
+            height: 1000px;
+        }
+        .jiuye{
+            width: 280px;
+            height: 250px;
         }
     </style>
 </head>
@@ -55,19 +64,15 @@
         <div class="navbar-header">
             <ul class=" nav navbar-nav">
                 <li>
-                <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
-                <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
-                <li><a href="">班级信息</a></li>
-                <li><a href="">班级动态</a></li>
-                <li><a href="">学院动态</a></li>
+                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
             </ul>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><h4>欢迎 ${sessionScope.student.username}  </h4></li>
+                <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
                 <li><a href="${ctx}/student/logout">注销</a></li>
             </ul>
-
         </div>
         </div>
     </ul>
@@ -75,27 +80,81 @@
 <div class="kb"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <h2 class="sub-header">就业信息</h2>
-            <div class="boxsize">
-                <ul id="list">
-                    <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
-                        <li>
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <tbody>
-                                    <tr>
-                                        <td>${vs.count}</td>
-                                        <td>${work.student.username}</td>
-                                        <td>${work.workUnit}</td>
-                                        <td>${work.position}</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </li>
-                    </c:forEach>
-                </ul>
+        <div class="col-lg-2 col-sm-3 col-md-2 sidebar" id="selfHome">
+            <ul class="nav nav-sidebar">
+                <li>导航栏</li>
+            <%--</ul>--%>
+            <%--<ul class="nav nav-sidebar">--%>
+                <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
+                <li><a href="#">班级信息</a></li>
+                <li><a href="#">就业信息</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-2">就业统计图表
+        <div><img class="jiuye" src="${ctx}/static/image/jiuye.jpg"></div>
+        </div>
+        <div class="col-lg-8">
+            <div class="col-sm-2 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-5 sidebar">
+                            <fieldset>
+                                <legend><h2 class="sub-header">就业信息</h2></legend>
+                                <div class="boxsize">
+                                    <ul id="list">
+                                        <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
+                                            <li>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>${vs.count}</td>
+                                                            <td>${work.student.username}</td>
+                                                            <td>${work.workUnit}</td>
+                                                            <td>${work.position}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-3 col-md-5 sidebar">
+                            <fieldset>
+                                <legend><h2 class="sub-header">班级公告</h2></legend>
+                                <div class="boxsize">
+                                    <ul id="list1">
+                                        <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
+                                            <li>
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>${vs.count}</td>
+                                                            <td>${work.student.username}</td>
+                                                            <td>${work.workUnit}</td>
+                                                            <td>${work.position}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
+                                    </ul>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -139,5 +198,6 @@
         setTimeout(start, delay);
     }
     scroll('list', 1000, 1, 20);//停留时间，相对速度（越小越快）,每次滚动多少，最好和Li的Line-height一致。
+    scroll('list1', 1000, 1, 20);//停留时间，相对速度（越小越快）,每次滚动多少，最好和Li的Line-height一致。
 
 </script>

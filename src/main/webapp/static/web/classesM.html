@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>班级管理</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+<link href="/bootstrap-3.3.4-dist/css/bootstrap.min.css"
+	rel="stylesheet" />
+<style type="text/css">
+.kb {
+	height: 100px;
+}
+
+body {
+	background-color: #ddffee;
+}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top"
+		style="background-color: #ddffee;">
+		<div class="container">
+			<div class="navbar-header">
+				<p class="navbar-brand">欢迎登录!</p>
+			</div>
+			<p class="navbar-brand"
+				style="font-size: 3em; margin-left: 280px; margin-top: 20px;">学生信息管理系统</p>
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="active"><a href="./">注销<span class="sr-only"></span></a></li>
+			</ul>
+		</div>
+		<!--/.nav-collapse -->
+	</nav>
+
+	<div class="container">
+		<div class="kb"></div>
+		<h2 class="page-header">--新增班级</h2>
+
+		<div>
+			<form class="well form-horizontal"
+				action="${ctx}/student/editStudent" method="post">
+				<input type="hidden" name="id"
+					value="${sessionScope.studentSelf.id}">
+					<div class="form-group">
+					<label class="control-label col-sm-2" for="bjbh">班级编号</label>
+					<div class="col-sm-4">
+						<input type="number" class="form-control" id="bjbh" type="number"
+							name="bjbh" value="${sessionScope.studentSelf.password}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="classId">班级名称</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="classId" name="classId">
+						</select>
+					</div>
+				</div>
+				
+				
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="number">开班时间</label>
+					<div class="col-sm-4">
+						<input type="date" class="form-control" id="kbTime"  name="kbTime"
+							value="${sessionScope.studentSelf.number}">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="idNumber">结业时间</label>
+					<div class="col-sm-4">
+						<input  type="date" class="form-control" id="jyTime" 
+							name="jyTime" value="${sessionScope.studentSelf.idNumber}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="tel">费用(元)</label>
+					<div class="col-sm-4">
+						<input  class="form-control" id="tel" type="text" name="tel"
+							value="${sessionScope.studentSelf.tel}">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="email">班主任</label>
+					<div class="col-sm-4">
+						<select class="form-control" id="tName"  name="tName"
+							></select>
+					</div>
+				</div>
+
+		<div class="form-group">
+			<label class="control-label col-sm-2" for="studentState">班级状态</label>
+			<div class="col-sm-4">
+				<select class="form-control" id="studentState" name="studentState">
+					<option class="studentState" value="no">未开班</option>
+					<option class="studentState" value="start">培训中</option>
+					<option class="studentState" value="end">培训结束</option>
+				</select>
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-4">
+				<button type="submit" class="btn btn-group-lg btn-success">提交</button>
+			</div>
+		
+		</div>
+</form>	
+	</div>
+</div>
+
+	
+</body>
+</html>
