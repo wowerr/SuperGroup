@@ -18,26 +18,28 @@
         body {
             font-size: 18px;
             font-family: "微软雅黑";
-            color: #666;
+            color: #c4e3f3;
             text-align: center;
             background-color: #6495ed;
+            background-image: url("${ctx}/static/image/bg1.png");
         }
 
         .sys {
             border: 2px solid #6495ed;
             border-radius: 20px 30px;
-            margin-left: 120px;
-            margin-right: 180px;
+            margin-left: 200px;
+            margin-right: 200px;
             margin-top: 70px;
-            padding-bottom: 5ex;
             padding-left: 10ex;
-            padding-right: 100px;
-            padding-top: 20px;
-            background-color: #ddd;
+            padding-right: 50px;
+            padding-top: 10px;
+
         }
+h1{
 
+color: #c4e3f3;
+}
         .xt {
-
             margin-right: 80px;
             margin-top: 10px;
             padding-bottom: 2ex;
@@ -46,26 +48,36 @@
             padding-top: 8px;
 
         }
-
+img{
+    width: 80px;
+    height: 80px;
+}
+img.password{
+    width: 30px;
+    height: 30px;
+}
+img.user{
+    width: 30px;
+    height: 30px;
+}
         .login {
             font-size: 0.5em;
-            margin-left: 800px;
+            margin-left: 500px;
             margin-right: 50px;
-            margin-top: 10px;
+            margin-top: 5px;
             margin-buttom: 100px;
-            padding-top: 10px;
-            padding-buttom: 100px;
+            padding-buttom:50px;
             padding-left: 10px;
             padding-right: 10px;
         }
-
+.loginImage{
+    margin-left: 0px;
+}
         .dl, .foot {
-
             margin-right: 0px;
-            margin-top: 30px;
+            margin-top: 10px;
             margin-buttom: 100px;
             padding-top: 110px;
-
             padding-left: 200px;
             padding-right: 10px;
         }
@@ -79,23 +91,20 @@
         </a>
     </div>
 
+        <h1 class="xt"><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1>
     <div class="sys">
-
-
-
-        <h2 class="xt">学员信息管理系统</h2>
         <h3 class="xt">学生登录</h3>
         <form action="/student/login" method="post">
             <div class="form-group">
 
-                <label for="email" class="col-sm-2 control-label">邮箱：</label>
-                <div class="col-sm-10">
+                <label for="email" class="col-sm-3 control-label"><img class="user" src="${ctx}/static/image/user.png">邮箱：</label>
+                <div class="col-sm-6">
                     <input type="email" name="email" class="form-control" id="email"
                            placeholder="email" value="test1@qq.com">
                 </div>
-
-                <label for="inputPassword" class="col-sm-2 control-label">密码：</label>
-                <div class="col-sm-10">
+<br><br><br>
+                <label for="inputPassword" class="col-sm-3 control-label"><img class="password" src="${ctx}/static/image/password.png">密码：</label>
+                <div class="col-sm-6">
                     <input type="password" name="password" class="form-control" id="inputPassword"
                            placeholder="密码" value="123">
                 </div>

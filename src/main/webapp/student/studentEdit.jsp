@@ -20,14 +20,48 @@
             $('input[type=file]').bootstrapFileInput();
         });
     </script>
+    <style type="text/css">
+        .boxsize {
+            width: 500px;
+        }
+
+        #navHeah {
+            height: 100px;
+            background-image: url("${ctx}/static/image/bg1.png");
+        }
+        img {
+            width: 80px;
+            height: 80px;
+        }
+        h1, h5 {
+            color: #c7ddef;
+        }
+    </style>
 </head>
 <body>
+<nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="container-fluid">
+        <div class="navbar-header">
+            <ul class=" nav navbar-nav">
+                <li>
+                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
+            </ul>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><h4>欢迎 ${sessionScope.student.username}  </h4></li>
+                <li><a href="${ctx}/student/logout">注销</a></li>
+            </ul>
+
+        </div>
+        </div>
+    </ul>
+</nav>
 <div class="container">
-    <div class="jumbotron">
+
         <h1 class="text-center">修改个人信息</h1>
-    </div>
-    ${sessionScope.studentSelf}
-    <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
+
+    <form class="well form-horizontal" action="${ctx}/student/studentEdit" method="post">
         <input type="hidden" name="id" value="${sessionScope.studentSelf.id}">
         <div class="form-group">
             <label class="control-label col-sm-2" for="classId">班级</label>

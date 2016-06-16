@@ -23,10 +23,9 @@
 </head>
 <body>
 <div class="container">
-    <div class="jumbotron">
+
         <h1 class="text-center">修改学生信息</h1>
-    </div>
-    ${sessionScope.studentSelf}
+
     <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
         <input type="hidden" name="id" value="${sessionScope.studentSelf.id}">
         <div class="form-group">

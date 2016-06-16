@@ -4,7 +4,72 @@ ul, li {
     font-size: 12px;
     color: #999;
 }
+body {
+    font-size: 18px;
+    font-family: "微软雅黑";
+    color: #c4e3f3;
+    text-align: center;
+    background-color: #6495ed;
+    background-image: url("${ctx}/static/image/bg1.png");
+}
 
+.sys {
+    border: 2px solid #6495ed;
+    border-radius: 20px 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 70px;
+    padding-left: 10ex;
+    padding-right: 50px;
+    padding-top: 10px;
+
+}
+h1{
+
+    color: #c4e3f3;
+}
+.xt {
+    margin-right: 80px;
+    margin-top: 10px;
+    padding-bottom: 2ex;
+    padding-left: 10ex;
+    padding-right: 10px;
+    padding-top: 8px;
+
+}
+img{
+    width: 80px;
+    height: 80px;
+}
+img.password{
+    width: 30px;
+    height: 30px;
+}
+img.user{
+    width: 30px;
+    height: 30px;
+}
+.login {
+    font-size: 0.5em;
+    margin-left: 500px;
+    margin-right: 50px;
+    margin-top: 5px;
+    margin-buttom: 100px;
+    padding-buttom:50px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.loginImage{
+    margin-left: 0px;
+}
+.dl, .foot {
+    margin-right: 0px;
+    margin-top: 10px;
+    margin-buttom: 100px;
+    padding-top: 110px;
+    padding-left: 200px;
+    padding-right: 10px;
+}
 ul {
     height: 250px;
     overflow: hidden;
