@@ -195,20 +195,13 @@
             border-bottom: 1px #000066 solid;
         }
 
-        #form {
-            width: 80%;
-            height: 99%;
-            margin: 0 auto;
-            _margin-left: 20%;
-
-        }
-
         fieldset {
             width: 100%;
             margin: 20 auto;
             line-height: 35px;
             padding-left: 20PX;
         }
+
         .boxsize {
             width: 500px;
         }
@@ -226,14 +219,35 @@
         h1, h5 {
             color: #c7ddef;
         }
+
         .kb {
             margin-top: 7em;
         }
+
+        .search-box {
+            float: left;
+            width: 34%;
+            margin: 1.2em 0 0 3em;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        /*#form {*/
+        /*width: 80%;*/
+        /*height: 99%;*/
+        /*margin: 0 auto;*/
+        /*_margin-left: 20%;*/
+
+        /*}*/
 
         -->
     </style>
 </head>
 <body>
+<c:if test="${sessionScope.admin eq null}">
+    <c:redirect url="/admin/admin.jsp"/>
+</c:if>
 <div id="mainDiv">
     <div id="topDiv">
         <div id="tmenu">
@@ -254,7 +268,7 @@
         <div id="right">
             <div id="current">&nbsp;&nbsp;&nbsp;&nbsp;当前位置:学籍管理</div>
             <div id="form">
-                <form action="${ctx}/student/searchClassById" method="post">
+                <form action="${ctx}/student/searchClassById" method="post" class="search-box">
                     <select id="id" name="id">
                         <c:forEach var="aClass" items="${sessionScope.classes}">
                             <option value="${aClass.id}">${aClass.title}</option>
@@ -262,11 +276,24 @@
                     </select>
                     <input type="submit" value="查询">
                 </form>
-                ${sessionScope.searchClass}
+                <div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"></h3>
+                        </div>
+                        <div class="panel-body"></div>
+                        <p>班级名称：${sessionScope.searchClass.title} </p>
+                        <p>开班时间：${sessionScope.searchClass.startDate} </p>
+                        <p>结业时间：${sessionScope.searchClass.finishDate}</p>
+                        <p>费用：${sessionScope.searchClass.cost}</p>
+                        <p>班主任：${sessionScope.searchClass.teacher} </p>
+                        <p>班级状态：${sessionScope.searchClass.classState}</p>
+                    </div>
+                </div>
                 <hr>
                 <div style="text-align: center">
-
-                    <table border="1">
+                    <table class="table">
+                        <thead>
                         <tr>
                             <th>序号</th>
                             <th>班级名称</th>
@@ -276,6 +303,8 @@
                             <th>班主任</th>
                             <th>班级状态</th>
                         </tr>
+                        </thead>
+                        <tbody>
                         <c:forEach var="aclass" items="${sessionScope.classes}" varStatus="vs">
                             <tr>
                                 <td>${vs.count}</td>
@@ -287,6 +316,8 @@
                                 <td>${aclass.classState}</td>
                             </tr>
                         </c:forEach>
+                        </tbody>
+
                     </table>
                 </div>
             </div>
@@ -300,6 +331,16 @@
     }, function () {
         $("#test").slideUp()
     })
-</script>
-</body>
+
+    $(document).ready(function(){
+        SetTableRowColor();
+    });
+    //用CSS控制奇偶行的颜色
+    function SetTableRowColor()
+    {
+        $("Table tr:odd").css("background-color", "#e6e6fa");
+        $("Table tr:even").css("background-color", "#c7ddef");
+    }
+    </script>
+    </body>
 </html>

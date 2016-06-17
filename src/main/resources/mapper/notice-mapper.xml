@@ -28,12 +28,15 @@
         UPDATE db_demo.notice
         SET
             notice = #{notice}
-        WHERE classId = #{classId};
+        WHERE id = #{id};
     </update>
 
     <delete id="remove">
         DELETE FROM db_demo.notice
         WHERE id =#{id}
     </delete>
-
+    <select id="list1" resultType="notice">
+        SELECT *
+        FROM db_demo.notice
+    </select>
 </mapper>

@@ -2,15 +2,24 @@
 <%@include file="/common/inc.jsp" %>
 <html>
 <head>
-    <title>学生登录</title>
+    <title>学生首页</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="${ctx}/static/bootstrap/css/bootstrap.min.css">
     <script src="${ctx}/static/js/jquery-1.12.3.min.js"></script>
     <script src="${ctx}/static/bootstrap/js/bootstrap.min.js"></script>
     <script src="${ctx}/static/bootstrap/js/bootstrap.file-input.js"></script>
     <script src="${ctx}/static/css/style.css"></script>
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Novus Admin Panel Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- chart -->
+    <script src="${ctx}/static/js/Chart.js"></script>
     <style type="text/css">
+        .pie-grid{
+            width: 230px;
+            height: 230px;
+        }
         img {
             width: 60px;
             height: 60px;
@@ -50,7 +59,7 @@
         }
         #selfHome {
             background-color: #07689d;
-            height: 1000px;
+            height: 2000px;
         }
         .jiuye{
             width: 280px;
@@ -66,6 +75,9 @@
     </style>
 </head>
 <body>
+<c:if test="${sessionScope.student eq null}">
+    <c:redirect url="/index.jsp"/>
+</c:if>
 <nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
     <ul class="container-fluid">
         <div class="navbar-header">
@@ -81,7 +93,6 @@
                 <li><a href="${ctx}/student/logout">注销</a></li>
             </ul>
         </div>
-        </div>
     </ul>
 </nav>
 <div class="kb"></div>
@@ -92,25 +103,182 @@
                 <li>导航栏</li>
             </ul>
             <ul class="nav nav-sidebar">
-                <li><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></li>
-                <li><a href="#">班级信息</a></li>
-                <li><a href="#">就业信息</a></li>
+                <li><h4><a href="${ctx}/student/queryByIdStudent/${sessionScope.student.id}">个人首页</a></h4></li>
+                <li><h4><a href="${ctx}/student/queryByClassId/${sessionScope.student.classId}">班级公告</a></h4></li>
+                <li><h4><a href="#">就业信息</a></h4></li>
             </ul>
         </div>
-        <div class="col-lg-2">就业统计图表
-        <div>
-
+        <div class="col-lg-2">
+            <fieldset>
+            <legend class="fieldset"><h2 class="sub-header">就业统计图表</h2></legend></fieldset>
+                <h4 class="title">red:就业${sessionScope.totalWork}</h4>
+                <h4 class="title">blue:未就业</h4>
+            <div class="col-md-6 charts chrt-page-grids chrt-right">
+                <div class="pie-grid">
+                    <canvas id="pie" height="50" width="50" style="width: 50px; height: 50px;"></canvas>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
             <script>
-                function total(){
-                    var sum=0;
-                    var numargs = arguments.length;
-                    for (i =0 ; i < numargs; i++){
-                        if(!isNaN(arguments[i]))sum += parseFloat(arguments[i]);
+                var doughnutData = [
+                    {
+                        value: 30,
+                        color:"#4F52BA"
+                    },
+                    {
+                        value : 50,
+                        color : "#F2B33F"
+                    },
+                    {
+                        value : 100,
+                        color : "#585858"
+                    },
+                    {
+                        value : 40,
+                        color : "#e94e02"
+                    },
+                    {
+                        value : 120,
+                        color : "#9358ac"
                     }
-                    return(sum);
+
+                ];
+                var lineChartData = {
+                    labels : ["Sun","Mon","Tue","Wed","Thr","Fri","Sat"],
+                    datasets : [
+                        {
+                            fillColor : "rgba(51, 51, 51, 0)",
+                            strokeColor : "#4F52BA",
+                            pointColor : "#4F52BA",
+                            pointStrokeColor : "#fff",
+                            data : [50,65,68,71,67,70,65]
+                        },
+                        {
+                            fillColor : "rgba(51, 51, 51, 0)",
+                            strokeColor : "#F2B33F",
+                            pointColor : "#F2B33F",
+                            pointStrokeColor : "#fff",
+                            data : [55,60,54,58,62,55,58]
+                        },
+                        {
+                            fillColor : "rgba(51, 51, 51, 0)",
+                            strokeColor : "#e94e02",
+                            pointColor : "#e94e02",
+                            pointStrokeColor : "#fff",
+                            data : [50,55,52,45,46,49,52]
+                        }
+                    ]
+
+                };
+                var pieData = [
+                    {
+                        value: 30,
+                        color:"#4F52BA"
+                    },
+                    {
+                        value : 50,
+                        color : "#585858"
+                    },
+                    {
+                        value : 100,
+                        color : "#e94e02"
+                    }
+
+                ];
+                var barChartData = {
+                    labels : ["January","February","March","April","May","June","July"],
+                    datasets : [
+                        {
+                            fillColor : "rgba(233, 78, 2, 0.83)",
+                            strokeColor : "#ef553a",
+                            highlightFill: "#ef553a",
+                            data : [65,59,90,81,56,55,40]
+                        },
+                        {
+                            fillColor : "rgba(79, 82, 186, 0.83)",
+                            strokeColor : "#4F52BA",
+                            highlightFill: "#4F52BA",
+                            data : [50,65,60,50,70,70,80]
+                        },
+                        {
+                            fillColor : "rgba(88, 88, 88, 0.83)",
+                            strokeColor : "#585858",
+                            highlightFill: "#585858",
+                            data : [28,48,40,19,96,27,100]
+                        }
+                    ]
+
+                };
+                var chartData = [
+                    {
+                        value : Math.random(),
+                        color: "rgba(239, 85, 58, 0.87)"
+                    },
+                    {
+                        value : Math.random(),
+                        color: "rgba(242, 179, 63, 0.87)"
+                    },
+                    {
+                        value : Math.random(),
+                        color: "rgba(88, 88, 88, 0.87)"
+                    },
+                    {
+                        value : Math.random(),
+                        color: "rgba(147, 88, 172, 0.87)"
+                    },
+                    {
+                        value : Math.random(),
+                        color: "rgba(79, 82, 186, 0.87)"
+                    },
+                ];
+                var radarChartData = {
+                    labels : ["Sun","Mon","Tue","Wed","Thr","Fri","Sat"],
+                    datasets : [
+                        {
+                            fillColor : "rgba(239, 85, 58, 0.87)",
+                            strokeColor : "#e94e02",
+                            pointColor : "#e94e02",
+                            pointStrokeColor : "#fff",
+                            data : [65,59,90,81,56,55,40]
+                        },
+                        {
+                            fillColor : "rgba(79, 82, 186, 0.87)",
+                            strokeColor : "#4F52BA",
+                            pointColor : "#4F52BA",
+                            pointStrokeColor : "#fff",
+                            data : [28,48,40,19,96,27,100]
+                        }
+                    ]
+
+                };
+                new Chart(document.getElementById("pie").getContext("2d")).Pie(pieData);
+            </script>
+            <!-- Classie -->
+            <%--<script src="${ctx}/static/js/classie.js"></script>--%>
+            <script>
+                var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
+                        showLeftPush = document.getElementById( 'showLeftPush' ),
+                        body = document.body;
+
+                showLeftPush.onclick = function() {
+                    classie.toggle( this, 'active' );
+                    classie.toggle( body, 'cbp-spmenu-push-toright' );
+                    classie.toggle( menuLeft, 'cbp-spmenu-open' );
+                    disableOther( 'showLeftPush' );
+                };
+
+                function disableOther( button ) {
+                    if( button !== 'showLeftPush' ) {
+                        classie.toggle( showLeftPush, 'disabled' );
+                    }
                 }
             </script>
-        </div>
+            <!--scrolling js-->
+            <script src="${ctx}/static/js/jquery.nicescroll.js"></script>
+            <script src="${ctx}/static/js/scripts.js"></script>
+            <!--//scrolling js-->
+            <!-- Bootstrap Core JavaScript -->
+            <script src="js/bootstrap.js"> </script>
         </div>
         <div class="col-lg-8">
             <div class="col-sm-2 col-sm-offset-3 col-md-10 col-md-offset-2 main">
@@ -143,24 +311,23 @@
                         </div>
                     </div>
                 </div>
-<br><br><br>
+<br>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-sm-3 col-md-5 sidebar">
                             <fieldset>
-                                <legend class="fieldset"><h2 class="sub-header">班级公告</h2></legend>
+                                <legend class="fieldset"><h2 class="sub-header"><a href="${ctx}/student/queryByClassId/${sessionScope.student.classId}">班级公告</a></h2></legend>
                                 <div class="boxsize">
                                     <ul id="list1">
-                                        <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
+                                        <c:forEach var="notices" items="${sessionScope.classNotices.notices}" varStatus="vs">
                                             <li>
                                                 <div class="table-responsive">
                                                     <table class="table table-striped">
                                                         <tbody>
                                                         <tr>
                                                             <td>${vs.count}</td>
-                                                            <td>${work.student.username}</td>
-                                                            <td>${work.workUnit}</td>
-                                                            <td>${work.position}</td>
+                                                            <td>${notices.notice}</td>
+                                                            <td>${notices.classId}</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

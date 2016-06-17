@@ -20,12 +20,57 @@
             $('input[type=file]').bootstrapFileInput();
         });
     </script>
+    <style type="text/css">
+        .kb {
+            margin-top: 6em;
+        }
+        .boxsize {
+            width: 500px;
+        }
+
+        #navHeah {
+            height: 100px;
+            background-image: url("${ctx}/static/image/bg1.png");
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1, h5 {
+            color: #c7ddef;
+        }
+        li>h4>a {
+            color: #c7ddef;
+        }
+    </style>
 </head>
 <body>
+<c:if test="${sessionScope.admin eq null}">
+    <c:redirect url="/admin/admin.jsp"/>
+</c:if>
+<nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="container-fluid">
+        <div class="navbar-header">
+            <ul class=" nav navbar-nav">
+                <li>
+                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
+            </ul>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><h4>欢迎 ${sessionScope.admin.username} &nbsp;&nbsp;&nbsp;&nbsp; </h4></li>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <li><h4><a href="${ctx}/admin/logout">注销</a></h4></li>
+            </ul>
+        </div>
+    </ul>
+</nav>
+<div class="kb"></div>
+
 <div class="container">
-
         <h1 class="text-center">修改学生信息</h1>
-
     <form class="well form-horizontal" action="${ctx}/student/editStudent" method="post">
         <input type="hidden" name="id" value="${sessionScope.studentSelf.id}">
         <div class="form-group">

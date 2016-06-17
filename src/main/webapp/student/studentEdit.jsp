@@ -45,6 +45,9 @@
     </style>
 </head>
 <body>
+<c:if test="${sessionScope.student eq null}">
+    <c:redirect url="/index.jsp"/>
+</c:if>
     <nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
         <ul class="container-fluid">
             <div class="navbar-header">

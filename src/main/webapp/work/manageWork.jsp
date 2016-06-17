@@ -27,15 +27,50 @@
         .boxsize{
             width: 500px;
         }
-    </style>
 
+        #navHeah {
+            height: 100px;
+            background-image: url("${ctx}/static/image/bg1.png");
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1, h5 {
+            color: #c7ddef;
+        }
+        .kb {
+            margin-top: 7em;
+        }
+    </style>
 
 </head>
 <body>
-<h1>管理就业信息</h1>
-<a href="${ctx}/student/search">添加就业信息</a><br>
-<hr>
-<h2 class="sub-header">就业信息</h2>
+<c:if test="${sessionScope.admin eq null}">
+    <c:redirect url="/admin/admin.jsp"/>
+</c:if>
+<nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
+    <ul class="container-fluid">
+        <div class="navbar-header">
+            <ul class=" nav navbar-nav">
+                <li>
+                    <h1><img src="${ctx}/static/image/1.jpg">学员信息管理系统</h1></li>
+            </ul>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><h3>管理就业信息 </h3></li>
+                <li><a href="${ctx}/admin/logout">注销</a></li>
+            </ul>
+        </div>
+    </ul>
+</nav>
+<div class="kb"></div>
+<div class="container">
+<h2 class="jumbotron">就业信息</h2>
+<a href="${ctx}/student/search">添加就业信息</a>
 <div class="boxsize">
 <ul id="list">
     <c:forEach var="work" items="${sessionScope.works}" varStatus="vs">
@@ -58,6 +93,7 @@
     </c:forEach>
 </ul>
 </div>
+    </div>
 </body>
 </html>
 <script type="text/javascript">

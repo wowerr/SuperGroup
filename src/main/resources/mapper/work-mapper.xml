@@ -10,7 +10,7 @@
             #{workUnit},
             #{position},
             #{studentId}
-        );
+        )
     </insert>
     <resultMap id="work_map" type="work">
         <id property="id" column="id"/>
@@ -56,11 +56,18 @@
     <update id="modify">
         UPDATE db_demo.work
         SET
-            workUnit = #{workUnit}, position = #{position}, studentId = #{studentId}
+            workUnit = #{workUnit}, position = #{position}
         WHERE id = #{id};
     </update>
     <delete id="remove">
         DELETE FROM db_demo.work
         WHERE id =#{id}
     </delete>
+
+    <select id="search" resultType="work" parameterType="int">
+        select *
+        from db_demo.work
+        WHERE id = #{id};
+    </select>
+
 </mapper>

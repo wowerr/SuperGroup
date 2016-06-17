@@ -33,6 +33,7 @@ public class WorkController extends BaseController {
     @RequestMapping("/queryWork")
     private String queryWork(Work work) {
         session.setAttribute("works", studentService.list("work.queryWork", work));
+        session.setAttribute("totalWork", studentService.list());//就业率统计 未解决
         return "redirect:/student/student.jsp";
     }
     @RequestMapping("/queryAllWork")
@@ -43,13 +44,14 @@ public class WorkController extends BaseController {
 
     @RequestMapping("/create")
     private String create(Work work) {
+        System.out.print(work);
         workService.create(work);
         return "redirect:/work/queryAllWork";
     }
 
     @RequestMapping("/queryWorkById/{id}")
     private String queryWorkById(@PathVariable("id") Integer id) {
-        session.setAttribute("work", studentService.list("work.queryWorkById", id));
+        session.setAttribute("work", workService.search("work.search",id));
         return "redirect:/work/editWork.jsp";
     }
     @RequestMapping("/editWork")

@@ -40,7 +40,9 @@
     </style>
 </head>
 <body>
-
+<c:if test="${sessionScope.admin eq null}">
+    <c:redirect url="/admin/admin.jsp"/>
+</c:if>
 <nav id="navHeah" class="navbar navbar-inverse navbar-fixed-top">
     <ul class="container-fluid">
         <div class="navbar-header">
@@ -51,8 +53,9 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><h3>${sessionScope.classesStudents.title}班级学生管理 </h3></li>
-                <li><a href="${ctx}/admin/logout">注销</a></li>
+                <li><h3>${sessionScope.classesStudents.title}班级学生管理&nbsp;&nbsp;&nbsp; </h3></li>
+                <li><a href="${ctx}/class/queryAllClasses.jsp">首页&nbsp;</a></li>
+                <li><a href="${ctx}/admin/logout">注销&nbsp;</a></li>
             </ul>
         </div>
     </ul>
@@ -60,10 +63,12 @@
 <div class="kb"></div>
 <div style="text-align: center">
     <hr>
-    <h2>${sessionScope.classesStudents.teacher}</h2>
+    <h2>班主任：${sessionScope.classesStudents.teacher}</h2>
     <h3>${sessionScope.classesStudents.startDate} - ${sessionScope.classesStudents.finishDate}</h3>
 </div>
-<table border="1">
+<div style="text-align: center">
+    <table class="table">
+        <thead>
     <tr>
         <th>序号</th>
         <th>用户名</th>
@@ -77,6 +82,8 @@
         <th>学生状态</th>
         <th colspan="2">操作</th>
     </tr>
+    </thead>
+        <tbody>
     <c:forEach var="classesStudent" items="${sessionScope.classesStudents.students}" varStatus="vs">
         <tr>
             <td>${vs.count}</td>
@@ -93,6 +100,20 @@
             <td><a class="remove" href="${ctx}/student/removeStudent/${classesStudent.id}">删除</a></td>
         </tr>
     </c:forEach>
+        </tbody>
 </table>
+    </div>
 </body>
 </html>
+<script>
+    $(document).ready(function(){
+        SetTableRowColor();
+    });
+    //用CSS控制奇偶行的颜色
+    function SetTableRowColor()
+    {
+        $("Table tr:odd").css("background-color", "#e6e6fa");
+        $("Table tr:even").css("background-color", "#c7ddef");
+    }
+</script>
+

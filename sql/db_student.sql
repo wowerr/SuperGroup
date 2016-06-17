@@ -93,6 +93,9 @@ CREATE TABLE db_demo.notice (
 )
   COMMENT '学院公告表';
 
+SELECT *
+FROM notice;
+
 ALTER TABLE db_demo.student
 ADD CONSTRAINT
   fk_student_classId
@@ -138,9 +141,32 @@ INSERT INTO db_demo.student VALUES
          '110111199101011212', '11111111111', 'test3@qq.com', '2016-06-05', '2016-06-22', 'ing', 1);
 
 
+SELECT *
+FROM db_demo.notice;
 
 SELECT *
-FROM student;
+FROM db_demo.student;
+
+SELECT *
+FROM db_demo.work;
+
+SELECT
+  s.username,
+  s.id
+FROM db_demo.student s
+WHERE id NOT IN (SELECT studentId
+                 FROM db_demo.work);
+
+
+SELECT
+  s.username,
+  s.id
+FROM db_demo.student s INNER JOIN db_demo.work w
+    ON s.id = w.studentId;
+
+
+
+
 
 
 
